@@ -27,11 +27,11 @@ let expandedVideo=null;
 function clock(seconds){const n=Math.floor(seconds);return Math.floor(n/60)+':'+String(n%60).padStart(2,'0')}
 function closeExpandedVideo(){
  if(!expandedVideo)return;
- const {shell,trigger,overflow,onKey}=expandedVideo;
+ const {shell,trigger,overflow,onKey,placeholder,scrollX,scrollY}=expandedVideo;
  if(document.fullscreenElement===shell)document.exitFullscreen().catch(()=>{});
  shell.classList.remove('is-expanded');shell.removeAttribute('role');shell.removeAttribute('aria-modal');
  document.body.style.overflow=overflow;document.removeEventListener('keydown',onKey);
- expandedVideo=null;trigger.focus({preventScroll:true});
+ placeholder.remove();expandedVideo=null;window.scrollTo(scrollX,scrollY);trigger.focus({preventScroll:true});
 }
 function installVideo(card,source,url){
  const videoId=url.hostname==='youtu.be'?url.pathname.slice(1):/(^|\.)youtube\.com$/.test(url.hostname)?url.searchParams.get('v')||url.pathname.match(/^\/(?:shorts|embed)\/([^/]+)/)?.[1]:null;
@@ -51,7 +51,7 @@ function installVideo(card,source,url){
  expand.onclick=()=>{
   closeExpandedVideo();
   const onKey=e=>{if(e.key==='Escape'){e.preventDefault();closeExpandedVideo()}else if(e.key==='Tab'){const controls=[close,...(full.hidden?[]:[full]),frame];const i=controls.indexOf(document.activeElement);if(e.shiftKey&&i===0){e.preventDefault();frame.focus()}else if(!e.shiftKey&&i===controls.length-1){e.preventDefault();close.focus()}}};
-  expandedVideo={shell,trigger:expand,overflow:document.body.style.overflow,onKey};
+  const placeholder=document.createElement('div');placeholder.style.height=(shell.getBoundingClientRect().height+12)+'px';shell.before(placeholder);expandedVideo={shell,trigger:expand,overflow:document.body.style.overflow,onKey,placeholder,scrollX:window.scrollX,scrollY:window.scrollY};
   shell.classList.add('is-expanded');shell.setAttribute('role','dialog');shell.setAttribute('aria-modal','true');document.body.style.overflow='hidden';document.addEventListener('keydown',onKey);close.focus({preventScroll:true});
  };
  shell.addEventListener('click',e=>{if(e.target===shell)closeExpandedVideo()});

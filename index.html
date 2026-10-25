@@ -2,7 +2,18 @@
 :root{color-scheme:light;--bg:#fafbf9;--fg:#17231d;--surface:#fff;--border:#ddd;--muted:#e6efe9;--mutedfg:#17523f;--accent:#19805f;--line:#eee}
 html[data-theme="dark"]{color-scheme:dark;--bg:#111714;--fg:#e8f0ea;--surface:#1c2721;--border:#34453a;--muted:#283b30;--mutedfg:#b9e5cd;--accent:#29936f;--line:#34453a}
 body{transition:background .2s,color .2s;
-margin:0;background:var(--bg);color:var(--fg);font:16px system-ui}header{padding:24px;font-weight:800;display:flex;align-items:center;justify-content:space-between}#themeToggle{border:1px solid var(--border);background:var(--surface);color:var(--fg);font-weight:600;padding:10px 15px}main{max-width:760px;margin:9vh auto;padding:20px;text-align:center}h1{font-size:48px;letter-spacing:-2px}h1 span{color:var(--accent)}h2{font-weight:500}form{display:flex;gap:8px;border:1px solid var(--border);border-radius:30px;padding:8px;background:var(--surface)}input{flex:1;border:0;outline:0;padding:12px;font:inherit;min-width:0;background:transparent;color:var(--fg)}button{background:var(--accent);border:0;color:white;border-radius:25px;padding:14px;cursor:pointer}.times{margin:20px}.times button{margin:4px;background:var(--muted);color:var(--mutedfg)}.times button.on{background:var(--accent);color:white}#result{text-align:left;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:25px;margin-top:30px}article{padding:14px;border-top:1px solid var(--line)}a{color:var(--accent)}@media(max-width:550px){h1{font-size:38px}form{flex-direction:column;border-radius:18px}}select{padding:10px;border-radius:12px;background:var(--surface);color:var(--fg);border:1px solid var(--border)}textarea{box-sizing:border-box;width:100%;min-height:85px;padding:12px;border:1px solid var(--border);border-radius:12px;background:var(--bg);color:var(--fg);font:inherit;margin:8px 0}input[type=checkbox]{width:auto}progress{width:100%;accent-color:var(--accent)}.source{border:1px solid var(--border);border-radius:12px;padding:14px;margin:12px 0}.source small{display:block;margin-top:6px}.muted{font-size:13px;opacity:.8}.badge{font-size:13px;color:var(--mutedfg)}.answer{display:block;text-align:left;margin:8px 0}button:disabled{opacity:.65;cursor:wait}:focus-visible{outline:3px solid var(--accent);outline-offset:3px}</style><header><span>Aprende Aí</span><button id="themeToggle" type="button" aria-label="Alternar tema">🌙 Modo escuro</button></header><main><h1>Aprende <span>Aí.</span></h1><h2>O que você quer aprender hoje?</h2><form id="f"><input maxlength="180" aria-label="O que você quer aprender?" id="topic" placeholder="Ex.: editar vídeo, rebocar parede..." required><button>Aprender agora →</button></form><div class="times" id="times"><button data-n="15">15 min</button><button data-n="30">30 min</button><button data-n="60" class="on">1 hora</button><button data-n="120">2 horas</button><button data-n="180">3 horas</button></div><label for="level">Seu nível: </label><select id="level"><option value="iniciante">Iniciante</option><option value="intermediário">Intermediário</option><option value="avançado">Avançado</option></select><p>CHA · Conhecimento Humano Aplicado</p><section id="result" hidden></section></main><script>
+margin:0;background:var(--bg);color:var(--fg);font:16px system-ui}header{padding:24px;font-weight:800;display:flex;align-items:center;justify-content:space-between}#themeToggle{border:1px solid var(--border);background:var(--surface);color:var(--fg);font-weight:600;padding:10px 15px}main{max-width:760px;margin:9vh auto;padding:20px;text-align:center}h1{font-size:48px;letter-spacing:-2px}h1 span{color:var(--accent)}h2{font-weight:500}form{display:flex;gap:8px;border:1px solid var(--border);border-radius:30px;padding:8px;background:var(--surface)}input{flex:1;border:0;outline:0;padding:12px;font:inherit;min-width:0;background:transparent;color:var(--fg)}button{background:var(--accent);border:0;color:white;border-radius:25px;padding:14px;cursor:pointer}.times{margin:20px}.times button{margin:4px;background:var(--muted);color:var(--mutedfg)}.times button.on{background:var(--accent);color:white}#result{text-align:left;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:25px;margin-top:30px}article{padding:14px;border-top:1px solid var(--line)}a{color:var(--accent)}@media(max-width:550px){h1{font-size:38px}form{flex-direction:column;border-radius:18px}}select{padding:10px;border-radius:12px;background:var(--surface);color:var(--fg);border:1px solid var(--border)}textarea{box-sizing:border-box;width:100%;min-height:85px;padding:12px;border:1px solid var(--border);border-radius:12px;background:var(--bg);color:var(--fg);font:inherit;margin:8px 0}input[type=checkbox]{width:auto}progress{width:100%;accent-color:var(--accent)}.source{border:1px solid var(--border);border-radius:12px;padding:14px;margin:12px 0}.source small{display:block;margin-top:6px}.muted{font-size:13px;opacity:.8}.badge{font-size:13px;color:var(--mutedfg)}.answer{display:block;text-align:left;margin:8px 0}button:disabled{opacity:.65;cursor:wait}:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.video-shell{position:relative;margin-top:12px}
+.video-shell iframe{display:block;width:100%;aspect-ratio:16/9;min-height:200px;border:0}
+.video-toolbar{display:none}
+.expand-video{margin-top:10px}
+.video-shell.is-expanded{position:fixed;inset:0;z-index:10000;margin:0;padding:calc(70px + env(safe-area-inset-top)) 12px calc(20px + env(safe-area-inset-bottom));box-sizing:border-box;background:rgba(0,0,0,.96);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px}
+.video-shell.is-expanded iframe{width:100%;max-width:1200px;max-height:calc(100dvh - 110px);flex-shrink:1;background:#000}
+.video-shell.is-expanded .video-toolbar{display:flex;position:absolute;top:calc(12px + env(safe-area-inset-top));left:12px;right:12px;justify-content:space-between;align-items:center;gap:12px;color:#fff}
+.video-toolbar button{background:#333;color:#fff;border:1px solid #777;padding:10px 16px}
+.video-caption{font-size:13px;line-height:1.5}
+@media(max-width:550px){#result{padding:16px}article{padding:14px 0}.source{padding:10px}.video-shell.is-expanded{padding-left:0;padding-right:0}}
+</style><header><span>Aprende Aí</span><button id="themeToggle" type="button" aria-label="Alternar tema">🌙 Modo escuro</button></header><main><h1>Aprende <span>Aí.</span></h1><h2>O que você quer aprender hoje?</h2><form id="f"><input maxlength="180" aria-label="O que você quer aprender?" id="topic" placeholder="Ex.: editar vídeo, rebocar parede..." required><button>Aprender agora →</button></form><div class="times" id="times"><button data-n="15">15 min</button><button data-n="30">30 min</button><button data-n="60" class="on">1 hora</button><button data-n="120">2 horas</button><button data-n="180">3 horas</button></div><label for="level">Seu nível: </label><select id="level"><option value="iniciante">Iniciante</option><option value="intermediário">Intermediário</option><option value="avançado">Avançado</option></select><p>CHA · Conhecimento Humano Aplicado</p><section id="result" hidden></section></main><script>
 const $=s=>document.querySelector(s);
 const themeButton=$('#themeToggle');
 function theme(value){document.documentElement.dataset.theme=value;themeButton.textContent=value==='dark'?'☀️ Modo claro':'🌙 Modo escuro';try{localStorage.setItem('aprendeai-theme',value)}catch{}}
@@ -11,7 +22,43 @@ themeButton.onclick=()=>theme(document.documentElement.dataset.theme==='dark'?'l
 let minutes=60;
 document.querySelectorAll('[data-n]').forEach(b=>b.onclick=()=>{minutes=Number(b.dataset.n);document.querySelectorAll('[data-n]').forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',String(x===b))})});
 function el(tag,text,parent){const node=document.createElement(tag);if(text)node.textContent=text;if(parent)parent.append(node);return node}
+
+let expandedVideo=null;
+function clock(seconds){const n=Math.floor(seconds);return Math.floor(n/60)+':'+String(n%60).padStart(2,'0')}
+function closeExpandedVideo(){
+ if(!expandedVideo)return;
+ const {shell,trigger,overflow,onKey}=expandedVideo;
+ if(document.fullscreenElement===shell)document.exitFullscreen().catch(()=>{});
+ shell.classList.remove('is-expanded');shell.removeAttribute('role');shell.removeAttribute('aria-modal');
+ document.body.style.overflow=overflow;document.removeEventListener('keydown',onKey);
+ expandedVideo=null;trigger.focus({preventScroll:true});
+}
+function installVideo(card,source,url){
+ const videoId=url.hostname==='youtu.be'?url.pathname.slice(1):/(^|\.)youtube\.com$/.test(url.hostname)?url.searchParams.get('v')||url.pathname.match(/^\/(?:shorts|embed)\/([^/]+)/)?.[1]:null;
+ if(!videoId||!/^[A-Za-z0-9_-]{11}$/.test(videoId))return;
+ const clip=source.clip;
+ const hasClip=clip?.basis==='transcript'&&Number.isInteger(clip.startSeconds)&&Number.isInteger(clip.endSeconds)&&clip.startSeconds>=0&&clip.endSeconds>clip.startSeconds;
+ const params=new URLSearchParams({playsinline:'1'});
+ if(hasClip){params.set('start',String(clip.startSeconds));params.set('end',String(clip.endSeconds));const external=new URL(url);external.searchParams.set('t',clip.startSeconds+'s');card.querySelector('a').href=external.href}
+ const note=el('p',hasClip?'Trecho indicado: '+clock(clip.startSeconds)+'–'+clock(clip.endSeconds)+' · selecionado pela transcrição':source.transcript?.status==='available'?'Transcrição consultada; nenhum trecho com horário foi confirmado.':'Sem transcrição analisada: o vídeo começa do início.',card);note.className='video-caption';
+ const shell=el('div','',card);shell.className='video-shell';shell.setAttribute('aria-label',source.title);
+ const toolbar=el('div','',shell);toolbar.className='video-toolbar';
+ const close=el('button','Fechar ×',toolbar);close.type='button';close.onclick=closeExpandedVideo;
+ const full=el('button','Tela inteira ⛶',toolbar);full.type='button';full.onclick=async()=>{try{if(document.fullscreenElement===shell)await document.exitFullscreen();else if(shell.requestFullscreen)await shell.requestFullscreen()}catch{}};
+ if(!shell.requestFullscreen)full.hidden=true;
+ const frame=el('iframe','',shell);frame.src='https://www.youtube-nocookie.com/embed/'+videoId+'?'+params;frame.title=source.title;frame.loading='lazy';frame.allow='fullscreen; picture-in-picture; encrypted-media';frame.allowFullscreen=true;frame.referrerPolicy='strict-origin-when-cross-origin';
+ const expand=el('button','Ampliar vídeo ⛶',card);expand.className='expand-video';expand.type='button';expand.setAttribute('aria-label','Ampliar vídeo: '+source.title);
+ expand.onclick=()=>{
+  closeExpandedVideo();
+  const onKey=e=>{if(e.key==='Escape'){e.preventDefault();closeExpandedVideo()}else if(e.key==='Tab'){const controls=[close,...(full.hidden?[]:[full]),frame];const i=controls.indexOf(document.activeElement);if(e.shiftKey&&i===0){e.preventDefault();frame.focus()}else if(!e.shiftKey&&i===controls.length-1){e.preventDefault();close.focus()}}};
+  expandedVideo={shell,trigger:expand,overflow:document.body.style.overflow,onKey};
+  shell.classList.add('is-expanded');shell.setAttribute('role','dialog');shell.setAttribute('aria-modal','true');document.body.style.overflow='hidden';document.addEventListener('keydown',onKey);close.focus({preventScroll:true});
+ };
+ shell.addEventListener('click',e=>{if(e.target===shell)closeExpandedVideo()});
+}
+
 function render(data,key){
+ closeExpandedVideo();
  const r=$('#result'),c=data.course;r.replaceChildren();el('h2',c.title,r);el('p',c.objective,r);
  el('p','CHA · '+c.modules.reduce((n,m)=>n+m.minutes,0)+' minutos de estudo estimado',r).className='badge';
  if(data.research){el('p',data.research.note,r).className='muted';el('p','Pesquisa realizada em '+new Date(data.research.checkedAt).toLocaleString('pt-BR'),r).className='muted'}
@@ -20,7 +67,7 @@ function render(data,key){
  function update(){const count=c.modules.filter((_,i)=>progress[i]).length;progressText.textContent=count+' de 5 etapas concluídas';bar.value=count;try{localStorage.setItem(key,JSON.stringify(progress))}catch{}}
  c.modules.forEach((m,i)=>{const a=el('article','',r);el('span',m.stage||'Etapa '+(i+1),a).className='badge';el('h3',m.title+' — '+m.minutes+' min',a);el('p',m.explanation,a);
  if(m.focus)el('p','Ao estudar: '+m.focus,a);
- (m.sources||[]).forEach(s=>{let url;try{url=new URL(s.url)}catch{return}if(url.protocol!=='https:')return;const card=el('div','',a);card.className='source';const link=el('a',s.title,card);link.href=url.href;link.target='_blank';link.rel='noopener noreferrer';el('small',s.platform+' · '+s.publisher,card);el('small',s.access?.status==='accessible'?'Link respondeu à verificação · Abrir ↗':'Acesso automático não confirmado · Abrir ↗',card);const videoId=url.hostname==='youtu.be'?url.pathname.slice(1):/(^|\.)youtube\.com$/.test(url.hostname)?url.searchParams.get('v'):null;if(videoId&&/^[A-Za-z0-9_-]{11}$/.test(videoId)){const frame=el('iframe','',card);frame.src='https://www.youtube-nocookie.com/embed/'+videoId;frame.title=s.title;frame.loading='lazy';frame.allow='fullscreen; picture-in-picture; encrypted-media';frame.allowFullscreen=true;frame.referrerPolicy='strict-origin-when-cross-origin';frame.style.cssText='display:block;width:100%;aspect-ratio:16/9;border:0;margin-top:12px'}});
+ (m.sources||[]).forEach(s=>{let url;try{url=new URL(s.url)}catch{return}if(url.protocol!=='https:')return;const card=el('div','',a);card.className='source';const link=el('a',s.title,card);link.href=url.href;link.target='_blank';link.rel='noopener noreferrer';el('small',s.platform+' · '+s.publisher,card);el('small',s.access?.status==='accessible'?'Link respondeu à verificação · Abrir ↗':'Acesso automático não confirmado · Abrir ↗',card);installVideo(card,s,url)});
  el('p','Prática: '+m.activity,a);const field=el('textarea','',a);field.placeholder='Anote aqui o que aprendeu ou sua resposta…';field.setAttribute('aria-label','Anotações da etapa '+(i+1));field.value=progress['note'+i]||'';field.oninput=()=>{progress['note'+i]=field.value;update()};
  const label=el('label','',a),check=el('input','',label);check.type='checkbox';check.checked=!!progress[i];check.onchange=()=>{progress[i]=check.checked;update()};label.append(' Concluí esta etapa');
  });update();

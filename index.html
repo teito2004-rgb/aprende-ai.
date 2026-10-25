@@ -24,6 +24,19 @@ document.querySelectorAll('[data-n]').forEach(b=>b.onclick=()=>{minutes=Number(b
 function el(tag,text,parent){const node=document.createElement(tag);if(text)node.textContent=text;if(parent)parent.append(node);return node}
 
 
+function isFreeLearningSource(source){
+ try{
+  const u=new URL(source.url);const host=u.hostname.toLowerCase().replace(/^www\./,'');
+  if(u.protocol!=='https:')return false;
+  if(/^(books\.google\.|play\.google\.)/.test(host))return false;
+  if(/(^|\.)(amazon\.[a-z.]+|amzn\.to|audible\.[a-z.]+|everand\.com|scribd\.com|udemy\.com|hotmart\.com|kiwify\.com\.br|eduzz\.com|goodreads\.com|skoob\.com\.br|estantevirtual\.com\.br|kobo\.com)$/.test(host))return false;
+  if(/\/(checkout|marketplace|cart|carrinho|comprar|buy|assinatura)(\/|\?|$)/i.test(u.pathname))return false;
+  const text=[source.title,source.excerpt].filter(v=>typeof v==='string').join(' ').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  if(/(compre (este|o) (livro|curso)|assine para (ler|continuar)|conteudo exclusivo para assinantes|purchase (this|the) (book|course)|subscription required|buy this book)/.test(text))return false;
+  return true;
+ }catch{return false}
+}
+
 let playerAPIPromise;
 function youtubePlayerAPI(){
  if(window.YT?.Player)return Promise.resolve(window.YT);
@@ -46,20 +59,22 @@ function closeExpandedVideo(){
  document.body.style.overflow=overflow;document.removeEventListener('keydown',onKey);
  placeholder.remove();expandedVideo=null;window.scrollTo(scrollX,scrollY);trigger.focus({preventScroll:true});
 }
-async function installVideo(card,source,url){
+async function installVideo(card,source,url,budgetSeconds){
  const videoId=url.hostname==='youtu.be'?url.pathname.slice(1):/(^|\.)youtube\.com$/.test(url.hostname)?url.searchParams.get('v')||url.pathname.match(/^\/(?:shorts|embed)\/([^/]+)/)?.[1]:null;
  if(!videoId||!/^[A-Za-z0-9_-]{11}$/.test(videoId))return;
  const checking=el('p','Verificando se o vídeo está disponível…',card);checking.setAttribute('role','status');
  let availability;
  try{const response=await fetch('/api/video-status',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({ids:[videoId]}),signal:AbortSignal.timeout(8000)});const data=await response.json();availability=data.videos?.find(v=>v.id===videoId)}catch{}
  if(!card.isConnected)return;
+ const selectedDuration=source.clip&&['transcript','chapter'].includes(source.clip.basis)?source.clip.endSeconds-source.clip.startSeconds:Number(source.durationSeconds);
+ if(!Number.isFinite(selectedDuration)||selectedDuration<=0||selectedDuration>budgetSeconds){card.replaceChildren();el('p',selectedDuration>budgetSeconds?'Vídeo retirado: ele ultrapassa o tempo reservado a esta etapa. Use os outros materiais da trilha.':'Vídeo retirado: a duração ainda não foi confirmada para caber nesta etapa.',card);return}
  if(availability?.status!=='available'){card.replaceChildren();el('p',availability?.status==='unavailable'?'Vídeo indisponível, privado ou com reprodução restrita. Ele foi retirado desta trilha. Use outra fonte da etapa ou gere uma nova trilha.':'Não foi possível confirmar este vídeo agora. O player não será exibido até a verificação. Reabra a trilha para tentar novamente.',card);return}
  checking.remove();if(availability.title)card.querySelector('a').textContent=availability.title;
  const clip=source.clip;
- const hasClip=clip?.basis==='transcript'&&Number.isInteger(clip.startSeconds)&&Number.isInteger(clip.endSeconds)&&clip.startSeconds>=0&&clip.endSeconds>clip.startSeconds;
+ const hasClip=['transcript','chapter'].includes(clip?.basis)&&Number.isInteger(clip.startSeconds)&&Number.isInteger(clip.endSeconds)&&clip.startSeconds>=0&&clip.endSeconds>clip.startSeconds;
  const params=new URLSearchParams({playsinline:'1',enablejsapi:'1',origin:location.origin});
  if(hasClip){params.set('start',String(clip.startSeconds));params.set('end',String(clip.endSeconds));const external=new URL(url);external.searchParams.set('t',clip.startSeconds+'s');card.querySelector('a').href=external.href}
- const note=el('p',hasClip?'Trecho indicado: '+clock(clip.startSeconds)+'–'+clock(clip.endSeconds)+' · selecionado pela transcrição':source.transcript?.status==='available'?'Transcrição consultada; nenhum trecho com horário foi confirmado.':'Sem transcrição analisada: o vídeo começa do início.',card);note.className='video-caption';
+ const note=el('p',hasClip?'Trecho indicado: '+clock(clip.startSeconds)+'–'+clock(clip.endSeconds)+(clip.basis==='chapter'?' · capítulo: '+(clip.chapterTitle||'trecho indicado'):' · selecionado pela transcrição'):source.transcript?.status==='available'?'Transcrição consultada; nenhum trecho com horário foi confirmado.':'Sem transcrição analisada: o vídeo começa do início.',card);note.className='video-caption';
  const shell=el('div','',card);shell.className='video-shell';shell.setAttribute('aria-label',source.title);
  const toolbar=el('div','',shell);toolbar.className='video-toolbar';
  const close=el('button','Fechar ×',toolbar);close.type='button';close.onclick=closeExpandedVideo;
@@ -92,6 +107,7 @@ async function installVideo(card,source,url){
 function render(data,key){
  closeExpandedVideo();
  const r=$('#result'),c=data.course;r.replaceChildren();el('h2',c.title,r);el('p',c.objective,r);
+ if(data.qualityVersion!==2){el('p','Esta trilha foi criada antes da revisão de duração e materiais gratuitos. Atualize-a para receber uma nova seleção.',r);const update=el('button','Atualizar esta trilha',r);update.type='button';update.onclick=()=>$('#f').requestSubmit()}
  el('p','CHA · '+c.modules.reduce((n,m)=>n+m.minutes,0)+' minutos de estudo estimado',r).className='badge';
  if(data.research){el('p',data.research.note,r).className='muted';el('p','Pesquisa realizada em '+new Date(data.research.checkedAt).toLocaleString('pt-BR'),r).className='muted'}
  let progress={};try{progress=JSON.parse(localStorage.getItem(key)||'{}')}catch{}
@@ -99,7 +115,7 @@ function render(data,key){
  function update(){const count=c.modules.filter((_,i)=>progress[i]).length;progressText.textContent=count+' de 5 etapas concluídas';bar.value=count;try{localStorage.setItem(key,JSON.stringify(progress))}catch{}}
  c.modules.forEach((m,i)=>{const a=el('article','',r);el('span',m.stage||'Etapa '+(i+1),a).className='badge';el('h3',m.title+' — '+m.minutes+' min',a);el('p',m.explanation,a);
  if(m.focus)el('p','Ao estudar: '+m.focus,a);
- (m.sources||[]).forEach(s=>{let url;try{url=new URL(s.url)}catch{return}if(url.protocol!=='https:')return;const card=el('div','',a);card.className='source';const link=el('a',s.title,card);link.href=url.href;link.target='_blank';link.rel='noopener noreferrer';el('small',s.platform+' · '+s.publisher,card);el('small',s.access?.status==='accessible'?'Link respondeu à verificação · Abrir ↗':'Acesso automático não confirmado · Abrir ↗',card);installVideo(card,s,url)});
+ (m.sources||[]).filter(isFreeLearningSource).forEach(s=>{let url;try{url=new URL(s.url)}catch{return}if(url.protocol!=='https:')return;const card=el('div','',a);card.className='source';const link=el('a',s.title,card);link.href=url.href;link.target='_blank';link.rel='noopener noreferrer';el('small',s.platform+' · '+s.publisher,card);el('small',s.access?.status==='accessible'?'Link respondeu à verificação · Abrir ↗':'Acesso automático não confirmado · Abrir ↗',card);installVideo(card,s,url,Math.floor(m.minutes*60*0.6))});
  el('p','Prática: '+m.activity,a);const field=el('textarea','',a);field.placeholder='Anote aqui o que aprendeu ou sua resposta…';field.setAttribute('aria-label','Anotações da etapa '+(i+1));field.value=progress['note'+i]||'';field.oninput=()=>{progress['note'+i]=field.value;update()};
  const label=el('label','',a),check=el('input','',label);check.type='checkbox';check.checked=!!progress[i];check.onchange=()=>{progress[i]=check.checked;update()};label.append(' Concluí esta etapa');
  });update();

@@ -9,11 +9,15 @@ export default async function handler(req,res){
  const instruction=`Você é o Sargento, coordenador educacional do Aprende Aí. Coordene mentalmente papéis de pesquisador, curador, professor, treinador e inspetor. Gere em português brasileiro um curso sobre o tema do usuário com ${minutes} minutos totais. Retorne SOMENTE JSON válido: {"title":string,"objective":string,"modules":[{"title":string,"minutes":number,"explanation":string,"activity":string}],"quiz":[{"question":string,"options":[string,string,string],"correct":number,"explanation":string}],"searchQueries":[string,string,string],"safetyNote":string}. Faça 4 módulos com soma EXATA ${minutes}; 3 questões com índice correto 0..2. Explicações concretas, corretas, aplicáveis. Não invente links nem afirme que pesquisou a web: searchQueries são consultas sugeridas para o usuário procurar vídeos, NÃO fontes verificadas. Para assuntos perigosos, recomende profissional habilitado, evite instruções operacionais arriscadas. Para saúde, não diagnostique. Não inclua markdown.`;
  try{
   let response,raw;
+  const failures=[];
   for(const model of models){
    response=await fetch('https://ai-gateway.vercel.sh/v1/chat/completions',{method:'POST',headers:{'Authorization':`Bearer ${key}`,'Content-Type':'application/json'},body:JSON.stringify({model,temperature:0.4,max_tokens:2500,messages:[{role:'system',content:instruction},{role:'user',content:topic.trim()}]})});
    if(response.ok){raw=await response.json();break;}
+   const failure=await response.json().catch(()=>({}));
+   const code=String(failure.error?.code||failure.error?.type||failure.code||'unknown').replace(/[^a-zA-Z0-9_-]/g,'').slice(0,80);
+   failures.push({status:response.status,code});
   }
-  if(!raw)return res.status(502).json({error:'A IA não respondeu. Confira o modelo habilitado e os créditos da API.'});
+  if(!raw)return res.status(502).json({error:'O serviço de IA recusou a solicitação: '+failures.map(f=>`HTTP ${f.status} (${f.code})`).join('; ')});
   const content=raw.choices?.[0]?.message?.content||'';
   const parsed=JSON.parse(content.replace(/^```(?:json)?\s*|\s*```$/g,''));
   if(!Array.isArray(parsed.modules)||!Array.isArray(parsed.quiz)||parsed.modules.reduce((n,m)=>n+Number(m.minutes||0),0)!==Number(minutes))throw Error('Estrutura inválida');

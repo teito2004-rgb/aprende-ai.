@@ -92,9 +92,21 @@ function designer(parsed, sources, minutes) {
     if(moduleVideoSeconds(ids.map(id=>byId.get(id))) > allocated[i]*60*0.6)throw new Error('VIDEO_TIME_EXCEEDED');
     return { stage: stages[i], title: clean(m.title, 200), minutes: allocated[i], explanation: clean(m.explanation), activity: clean(m.activity), focus: clean(m.focus, 600), sources: ids.slice(0, 2).map(id => { const { excerpt, transcript, ...source } = byId.get(id); return { ...source, transcript: transcript ? { status: transcript.status, language: transcript.language } : { status: 'unavailable' } };  }) };
   });
+  // The coordinator keeps one curated, time-verified demonstration when it fits.
+  if(!modules.some(m=>m.sources.some(isVideo))){
+    const candidates=sources.filter(isVideo);
+    for(const index of [1,2,0,4]){
+      const module=modules[index];
+      const video=candidates.find(s=>fitsVideoBudget(s,module.minutes*60*0.6));
+      if(!video)continue;
+      const {excerpt,transcript,...publicVideo}=video;
+      module.sources.push({...publicVideo,transcript:transcript?{status:transcript.status,language:transcript.language}:{status:'unavailable'}});
+      break;
+    }
+  }
   if (!modules.some(m => m.sources.length)) throw new Error('NO_CURATED_SOURCES');
   const quiz = treinador(parsed.quiz);
-  return { course: { title: clean(parsed.title, 200), objective: clean(parsed.objective), modules, quiz, summary: clean(parsed.summary), safetyNote: clean(parsed.safetyNote) }, generated: true, qualityVersion: 2, research: { status: 'searched', checkedAt: new Date().toISOString(), resultsCount: sources.length, transcriptsRead: sources.filter(s => s.transcript?.status === 'available').length, clipsSelected: sources.filter(s => s.clip).length, note: 'Materiais encontrados por busca na web. Quando disponível, a transcrição é usada para selecionar um trecho com horário real. Sem transcrição, a seleção usa títulos e trechos da pesquisa. O tempo de estudo é estimado; a leitura das legendas não avalia todas as imagens do vídeo.' } };
+  return { course: { title: clean(parsed.title, 200), objective: clean(parsed.objective), modules, quiz, summary: clean(parsed.summary), safetyNote: clean(parsed.safetyNote) }, generated: true, qualityVersion: 2, research: { status: 'searched', checkedAt: new Date().toISOString(), resultsCount: sources.length, transcriptsRead: modules.flatMap(m=>m.sources).filter(s => s.transcript?.status === 'available').length, clipsSelected: modules.flatMap(m=>m.sources).filter(s => s.clip).length, note: 'Materiais encontrados por busca na web. Quando disponível, a transcrição é usada para selecionar um trecho com horário real. Sem transcrição, a seleção usa títulos e trechos da pesquisa. O tempo de estudo é estimado; a leitura das legendas não avalia todas as imagens do vídeo.' } };
 }
 function treinador(questions) {
   return questions.map(q => {

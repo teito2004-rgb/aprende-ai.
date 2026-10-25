@@ -156,12 +156,22 @@ async function sargento(topic, minutes, level, clarified = false) {
   const selectedSources = await curador(enriched.filter(s => !isVideo(s) || fitsVideoBudget(s,minutes*60*0.6) || s.transcript?.status==='available' || s.chapters?.some(c=>c.end-c.start<=Math.min(180,minutes*6))), topic, minutes, signal).catch(err => { throw new Error(err.code || (/^CURATION_[A-Z0-9_]+$/.test(err.message) ? err.message : 'CURATION_' + (err.statusCode || 'PARSE')));   });
   const sources = selectedSources.filter(s => fitsVideoBudget(s, minutes * 60 * 0.6));
   if (!sources.length) throw new Error('SEARCH_EMPTY');
+  const finish = parsed => {
+    const result = designer(parsed,sources,minutes);
+    result.research.transcriptDiagnostics = {
+      configured: Boolean(process.env.SUPADATA_API_KEY),
+      videoCandidates: withAvailability.filter(s=>youtubeId(s.url)).length,
+      videoChecksPassed: checked.filter(s=>youtubeId(s.url)).length,
+      evidence: enriched.filter(s=>youtubeId(s.url)).map(s=>({id:s.id,status:s.transcript?.status||'not_analyzed',provider:s.transcript?.provider||null,reason:s.transcript?.reason||null}))
+    };
+    return result;
+  };
   let parsed = await professor(topic, minutes, level, sources, signal).catch(err => { throw new Error(err.code || 'PROFESSOR_' + (err.statusCode || 'PARSE'));  });
-  try { return designer(parsed, sources, minutes); }
+  try { return finish(parsed); }
   catch (error) {
     if (signal.aborted) throw error;
     parsed = await professor(topic, minutes, level, sources, signal);
-    return designer(parsed, sources, minutes);
+    return finish(parsed);
   }
 }
 export default async function handler(req, res) {

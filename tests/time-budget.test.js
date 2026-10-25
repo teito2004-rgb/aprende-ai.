@@ -1,0 +1,6 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {fitsVideoBudget,videoSeconds,moduleVideoSeconds} from '../lib/time-budget.js';
+const video={platform:'YouTube',url:'https://www.youtube.com/watch?v=11pwVuMpCp0'};
+test('a 20-minute video cannot be assigned to a 15-minute learning plan',()=>{assert.equal(fitsVideoBudget({...video,durationSeconds:1200},15*60*.6),false)});
+test('unknown duration does not silently count as zero minutes',()=>{assert.equal(fitsVideoBudget(video,900),false);assert.equal(videoSeconds({...video,durationSeconds:null}),null)});
+test('only a real transcript-backed clip can replace full-video duration',()=>{const clipped={...video,durationSeconds:1200,clip:{basis:'transcript',startSeconds:120,endSeconds:180}};assert.equal(videoSeconds(clipped),60);assert.equal(fitsVideoBudget(clipped,90),true);assert.equal(fitsVideoBudget({...clipped,clip:{basis:'guess',startSeconds:120,endSeconds:180}},90),false)});
+test('combined videos must fit and articles are not treated as zero-duration videos',()=>{assert.equal(moduleVideoSeconds([{...video,durationSeconds:60},{...video,durationSeconds:80}]),140);assert.equal(fitsVideoBudget({url:'https://example.org/guia',platform:'Site'},90),true)});

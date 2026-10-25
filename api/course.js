@@ -153,7 +153,7 @@ async function sargento(topic, minutes, level, clarified = false) {
   const checked = withAvailability.filter(s => !youtubeId(s.url) || s.availability?.status === 'available');
   let count = 0;
   const enriched = await Promise.all(checked.map(s => youtubeId(s.url) && count++ < 3 ? videoEvidence(s, signal) : { ...s, transcript: { status: youtubeId(s.url) ? 'not_analyzed' : 'not_applicable', blocks: [] } }));
-  const selectedSources = await curador(enriched, topic, minutes, signal).catch(err => { throw new Error(err.code || (/^CURATION_[A-Z0-9_]+$/.test(err.message) ? err.message : 'CURATION_' + (err.statusCode || 'PARSE')));   });
+  const selectedSources = await curador(enriched.filter(s => !isVideo(s) || fitsVideoBudget(s,minutes*60*0.6) || s.transcript?.status==='available' || s.chapters?.some(c=>c.end-c.start<=Math.min(180,minutes*6))), topic, minutes, signal).catch(err => { throw new Error(err.code || (/^CURATION_[A-Z0-9_]+$/.test(err.message) ? err.message : 'CURATION_' + (err.statusCode || 'PARSE')));   });
   const sources = selectedSources.filter(s => fitsVideoBudget(s, minutes * 60 * 0.6));
   if (!sources.length) throw new Error('SEARCH_EMPTY');
   let parsed = await professor(topic, minutes, level, sources, signal).catch(err => { throw new Error(err.code || 'PROFESSOR_' + (err.statusCode || 'PARSE'));  });

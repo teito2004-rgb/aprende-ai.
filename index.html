@@ -106,12 +106,21 @@ function render(data,key){
  el('h3','Teste de fixação',r);c.quiz.forEach((q,i)=>{const block=el('article','',r);el('h4',(i+1)+'. '+q.question,block);const feedback=el('p','',block);feedback.setAttribute('aria-live','polite');q.options.forEach((o,j)=>{const b=el('button',o,block);b.className='answer';b.onclick=()=>{feedback.textContent=(j===q.correct?'✓ Correto. ':'Vamos revisar. ')+q.explanation}})});
  if(c.summary){el('h3','Para levar com você',r);el('p',c.summary,r)}if(c.safetyNote)el('p',c.safetyNote,r);
 }
+
+function renderClarification(clarification){
+ const r=$('#result');r.replaceChildren();el('h2','Vamos definir o assunto',r);el('p',clarification.question,r);
+ function choose(topic){$('#topic').value=topic;$('#f').dataset.clarified='true';$('#f').requestSubmit()}
+ clarification.options.forEach(option=>{const button=el('button',option.label,r);button.className='answer';button.type='button';button.onclick=()=>choose(option.topic)});
+ el('p','Ou descreva com suas palavras:',r);const input=el('input','',r);input.placeholder='Ex.: conquistar metas profissionais';input.maxLength=180;input.setAttribute('aria-label','Esclareça o que deseja aprender');input.style.cssText='box-sizing:border-box;width:100%;border:1px solid var(--border);border-radius:12px;background:var(--bg);margin:8px 0';
+ const confirm=el('button','Usar este tema',r);confirm.type='button';confirm.onclick=()=>{if(input.value.trim())choose(input.value.trim());else input.focus()};input.onkeydown=e=>{if(e.key==='Enter')confirm.click()};
+}
+
 $('#f').addEventListener('submit',async e=>{
  e.preventDefault();const topic=$('#topic').value.trim();if(!topic)return;
  const button=$('#f button'),r=$('#result');button.disabled=true;button.textContent='Preparando…';r.hidden=false;r.replaceChildren();r.setAttribute('aria-busy','true');
  const status=el('p','🎖️ Sargento pesquisando materiais e preparando sua trilha…',r);status.setAttribute('role','status');el('p','Isso pode levar cerca de um minuto.',r);r.scrollIntoView({behavior:'smooth',block:'start'});
- const chosen=minutes,level=$('#level').value;
- try{const response=await fetch('/api/course',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({topic,minutes:chosen,level}),signal:AbortSignal.timeout(125000)});const data=await response.json().catch(()=>({}));if(!response.ok||!data.course)throw Error(data.error||'O servidor não conseguiu preparar a trilha. Tente novamente.');const key='aprendeai-progress:'+JSON.stringify([topic.toLowerCase(),chosen,level,data.course.title]);render(data,key);try{localStorage.setItem('aprendeai-last-course',JSON.stringify({data,key,topic,minutes:chosen,level}))}catch{}}
+ const chosen=minutes,level=$('#level').value,clarified=$('#f').dataset.clarified==='true';delete $('#f').dataset.clarified;
+ try{const response=await fetch('/api/course',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({topic,minutes:chosen,level,clarified}),signal:AbortSignal.timeout(125000)});const data=await response.json().catch(()=>({}));if(!response.ok)throw Error(data.error||'Não consegui preparar a trilha agora. Tente novamente.');if(data.clarification){renderClarification(data.clarification);return}if(!data.course)throw Error('A trilha não foi concluída. Tente novamente.');const key='aprendeai-progress:'+JSON.stringify([topic.toLowerCase(),chosen,level,data.course.title]);render(data,key);try{localStorage.setItem('aprendeai-last-course',JSON.stringify({data,key,topic,minutes:chosen,level}))}catch{}}
  catch(err){r.replaceChildren();el('p',err.name==='TimeoutError'?'A preparação demorou mais que o esperado. Tente novamente.':err.message,r).setAttribute('role','alert');}
  finally{button.disabled=false;button.textContent='Aprender agora →';r.setAttribute('aria-busy','false')}
 });

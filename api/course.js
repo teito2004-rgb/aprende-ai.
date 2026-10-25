@@ -1,3 +1,4 @@
+import { videoAvailability } from '../lib/video-availability.js';
 import { videoEvidence, verifiedClip, youtubeId } from '../lib/video-evidence.js';
 import { generateText, gateway, isStepCount } from 'ai';
 import https from 'node:https';
@@ -161,7 +162,13 @@ async function curador(sources, topic, minutes, signal) {
 async function sargento(topic, minutes, level) {
   const signal = AbortSignal.timeout(110000);
   const evidence = await explorador(topic, signal).catch(err => { throw new Error(/^SEARCH_[A-Z0-9_]+$/.test(err.message) ? err.message : 'SEARCH_' + (err.statusCode || 'FAILED'));  });
-  const checked = await inspetor(evidence);
+  const inspected = await inspetor(evidence);
+  const withAvailability = await Promise.all(inspected.map(async s => {
+    const id = youtubeId(s.url); if (!id) return s;
+    const availability = await videoAvailability(id);
+    return { ...s, availability, title: availability.title || s.title, author: availability.author || '' };
+  }));
+  const checked = withAvailability.filter(s => !youtubeId(s.url) || s.availability?.status === 'available');
   let count = 0;
   const enriched = await Promise.all(checked.map(s => youtubeId(s.url) && count++ < 3 ? videoEvidence(s, signal) : { ...s, transcript: { status: youtubeId(s.url) ? 'not_analyzed' : 'not_applicable', blocks: [] } }));
   const sources = await curador(enriched, topic, minutes, signal).catch(err => { throw new Error(/^CURATION_[A-Z0-9_]+$/.test(err.message) ? err.message : 'CURATION_' + (err.statusCode || 'PARSE'));  });

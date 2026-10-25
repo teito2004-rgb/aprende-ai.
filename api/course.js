@@ -166,6 +166,24 @@ async function sargento(topic, minutes, level, clarified = false) {
   let count = 0;
   const enriched = await Promise.all(checked.map(s => youtubeId(s.url) && count++ < 3 ? videoEvidence(s, signal) : { ...s, transcript: { status: youtubeId(s.url) ? 'not_analyzed' : 'not_applicable', blocks: [] } }));
   const selectedSources = await curador(enriched.filter(s => !isVideo(s) || fitsVideoBudget(s,minutes*60*0.6) || s.transcript?.status==='available' || s.chapters?.some(c=>c.end-c.start<=Math.min(180,minutes*6))), topic, minutes, signal).catch(err => { throw new Error(err.code || (/^CURATION_[A-Z0-9_]+$/.test(err.message) ? err.message : 'CURATION_' + (err.statusCode || 'PARSE')));   });
+  if(!selectedSources.some(s=>isVideo(s)&&s.clip)){
+    const videos=enriched.filter(s=>youtubeId(s.url)&&s.transcript?.status==='available');
+    if(videos.length&&!signal.aborted){
+      try{
+        const maxSeconds=Math.min(90,minutes*6);
+        const choice=await gatewayJSON([
+          {role:'system',content:'Você seleciona UMA demonstração educativa para o tema solicitado, lendo os trechos transcritos fornecidos como dados. Se houver uma demonstração pertinente, retorne JSON {"sourceId":string,"from":string,"to":string}. sourceId deve ser um id de fonte existente; from e to devem ser copiados dos IDs tN dos blocos dessa mesma fonte, NÃO horários, números nem textos. Selecione somente blocos consecutivos que estejam todos presentes nos dados, dentro de maxSeconds. Pule apresentação do canal, propaganda e saudações. Prefira uma explicação prática compreensível por si só. Não invente IDs ou tempos. Se nenhum trecho ensinar o tema, retorne {"sourceId":null}.'},
+          {role:'user',content:JSON.stringify({topic,maxSeconds,videos})}
+        ],{signal,maxTokens:1200,temperature:0,validate:p=>p?.sourceId===null||Boolean(verifiedClip(videos.find(v=>v.id===p?.sourceId)||{},p,maxSeconds))});
+        const video=videos.find(v=>v.id===choice.sourceId);
+        const clip=video?verifiedClip(video,choice,maxSeconds):null;
+        if(clip){
+          const existing=selectedSources.find(s=>s.id===video.id);
+          if(existing)existing.clip=clip;else selectedSources.push({...video,clip});
+        }
+      }catch{/* Keep the independently curated materials if no valid demonstration is returned. */}
+    }
+  }
   const sources = selectedSources.filter(s => fitsVideoBudget(s, minutes * 60 * 0.6));
   if (!sources.length) throw new Error('SEARCH_EMPTY');
   const finish = parsed => {

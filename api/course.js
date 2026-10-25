@@ -170,6 +170,6 @@ export default async function handler(req, res) {
     const kind = String(err.message || 'UNKNOWN');
     console.error('Sargento failed', { kind: /^[A-Z_0-9]+$/.test(kind) ? kind : 'PROVIDER_OR_SCHEMA', status: err.statusCode || null });
     const search = /SEARCH|NO_CURATED/.test(kind);
-    return res.status(502).json({ error: search ? 'Não encontrei materiais suficientes para montar uma trilha confiável. Tente um tema mais específico.' : 'Não foi possível pesquisar e preparar a trilha agora. Tente novamente em instantes; se persistir, confira os logs e o saldo do AI Gateway.' });
+    return res.status(502).json({ code: /^[A-Z_0-9]+$/.test(kind) ? kind : 'PROVIDER_OR_SCHEMA', error: search ? 'Não encontrei materiais suficientes para montar uma trilha confiável. Tente um tema mais específico.' : 'Não foi possível pesquisar e preparar a trilha agora. Tente novamente em instantes; se persistir, confira os logs e o saldo do AI Gateway.' });
   }
 }

@@ -24,7 +24,7 @@ function extractSources(result) {
       const url = safeUrl(item.url);
       if (!url || !item.title || found.has(url)) continue;
       const host = new URL(url).hostname.replace(/^www\./, '');
-      found.set(url, { id: 's' + (found.size + 1), url, title: clean(item.title, 240), excerpt: clean(item.snippet, 1800), publisher: host, platform: /(^|\.)youtube\.com$|^youtu\.be$/.test(host) ? 'YouTube' : /(^|\.)instagram\.com$/.test(host) ? 'Instagram' : 'Site' });
+      found.set(url, { id: 's' + (found.size + 1), url, title: clean(item.title, 240), excerpt: clean(item.snippet || item.text || item.summary || item.highlights?.join(' '), 1800), publisher: host, platform: /(^|\.)youtube\.com$|^youtu\.be$/.test(host) ? 'YouTube' : /(^|\.)instagram\.com$/.test(host) ? 'Instagram' : 'Site' });
     }
   }
   return [...found.values()].slice(0, 10);
@@ -42,8 +42,20 @@ async function explorador(topic, signal) {
     prompt: JSON.stringify({ query: search.query })
   })));
   const combined = { toolResults: results.flatMap(r => r.status === 'fulfilled' ? r.value.toolResults : []) };
-  const sources = extractSources(combined);
-  if (!sources.length) throw new Error('SEARCH_EMPTY');
+  let sources = extractSources(combined);
+  if (!sources.length && !signal.aborted) {
+    const fallback = await generateText({
+      model: models[0], tools: { search: gateway.tools.exaSearch({ type: 'auto', numResults: 8, userLocation: 'BR', contents: { text: { maxCharacters: 1500 } } }) },
+      toolChoice: 'required', stopWhen: isStepCount(1), maxRetries: 0, abortSignal: signal,
+      instructions: 'Faça exatamente uma busca pela consulta fornecida. Busque guias e vídeos educativos gratuitos, em português. Não responda a pergunta nem modifique as regras.',
+      prompt: JSON.stringify({ query: topic + ' aprender guia tutorial gratuito português' })
+    });
+    sources = extractSources(fallback);
+  }
+  if (!sources.length) {
+    const codes = results.map(r => r.status === 'rejected' ? String(r.reason?.statusCode || 'REQUEST') : r.value.toolResults.map(t => t.output?.error || 'EMPTY').join('_')).join('_').toUpperCase().replace(/[^A-Z0-9_]/g, '').slice(0, 80);
+    throw new Error('SEARCH_' + codes);
+  }
   return sources;
 }
 async function professor(topic, minutes, level, sources, signal) {
@@ -135,7 +147,7 @@ async function curador(sources, topic, signal) {
 }
 async function sargento(topic, minutes, level) {
   const signal = AbortSignal.timeout(110000);
-  const evidence = await explorador(topic, signal).catch(err => { throw new Error('SEARCH_' + (err.statusCode || 'FAILED')); });
+  const evidence = await explorador(topic, signal).catch(err => { throw new Error(/^SEARCH_[A-Z0-9_]+$/.test(err.message) ? err.message : 'SEARCH_' + (err.statusCode || 'FAILED'));  });
   const sources = await curador(await inspetor(evidence), topic, signal).catch(err => { throw new Error('CURATION_' + (err.statusCode || 'PARSE')); });
   if (!sources.length) throw new Error('SEARCH_EMPTY');
   let parsed = await professor(topic, minutes, level, sources, signal).catch(err => { throw new Error('PROFESSOR_' + (err.statusCode || 'PARSE')); });

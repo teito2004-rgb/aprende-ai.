@@ -192,7 +192,7 @@ async function sargento(topic, minutes, level, clarified = false) {
       configured: Boolean(process.env.SUPADATA_API_KEY),
       videoCandidates: withAvailability.filter(s=>youtubeId(s.url)).length,
       videoChecksPassed: checked.filter(s=>youtubeId(s.url)).length,
-      evidence: enriched.filter(s=>youtubeId(s.url)).map(s=>({id:s.id,status:s.transcript?.status||'not_analyzed',provider:s.transcript?.provider||null,reason:s.transcript?.reason||null}))
+      evidence: enriched.filter(s=>youtubeId(s.url)).map(s=>({id:s.id,status:s.transcript?.status||'not_analyzed',provider:s.transcript?.provider||null,reason:s.transcript?.reason||null,blocks:s.transcript?.blocks?.length||0,minBlockSeconds:s.transcript?.blocks?.length?Math.min(...s.transcript.blocks.map(b=>b.end-b.start)):null}))
     };
     return result;
   };

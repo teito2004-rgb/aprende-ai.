@@ -23,6 +23,19 @@ let minutes=60;
 document.querySelectorAll('[data-n]').forEach(b=>b.onclick=()=>{minutes=Number(b.dataset.n);document.querySelectorAll('[data-n]').forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',String(x===b))})});
 function el(tag,text,parent){const node=document.createElement(tag);if(text)node.textContent=text;if(parent)parent.append(node);return node}
 
+
+let playerAPIPromise;
+function youtubePlayerAPI(){
+ if(window.YT?.Player)return Promise.resolve(window.YT);
+ if(playerAPIPromise)return playerAPIPromise;
+ playerAPIPromise=new Promise(resolve=>{
+  const previous=window.onYouTubeIframeAPIReady;
+  window.onYouTubeIframeAPIReady=()=>{try{previous?.()}finally{resolve(window.YT)}};
+  const script=document.createElement('script');script.src='https://www.youtube.com/iframe_api';script.async=true;script.onerror=()=>resolve(null);document.head.append(script);
+ });
+ return playerAPIPromise;
+}
+
 let expandedVideo=null;
 function clock(seconds){const n=Math.floor(seconds);return Math.floor(n/60)+':'+String(n%60).padStart(2,'0')}
 function closeExpandedVideo(){
@@ -33,12 +46,18 @@ function closeExpandedVideo(){
  document.body.style.overflow=overflow;document.removeEventListener('keydown',onKey);
  placeholder.remove();expandedVideo=null;window.scrollTo(scrollX,scrollY);trigger.focus({preventScroll:true});
 }
-function installVideo(card,source,url){
+async function installVideo(card,source,url){
  const videoId=url.hostname==='youtu.be'?url.pathname.slice(1):/(^|\.)youtube\.com$/.test(url.hostname)?url.searchParams.get('v')||url.pathname.match(/^\/(?:shorts|embed)\/([^/]+)/)?.[1]:null;
  if(!videoId||!/^[A-Za-z0-9_-]{11}$/.test(videoId))return;
+ const checking=el('p','Verificando se o vídeo está disponível…',card);checking.setAttribute('role','status');
+ let availability;
+ try{const response=await fetch('/api/video-status',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({ids:[videoId]}),signal:AbortSignal.timeout(8000)});const data=await response.json();availability=data.videos?.find(v=>v.id===videoId)}catch{}
+ if(!card.isConnected)return;
+ if(availability?.status!=='available'){card.replaceChildren();el('p',availability?.status==='unavailable'?'Vídeo indisponível, privado ou com reprodução restrita. Ele foi retirado desta trilha. Use outra fonte da etapa ou gere uma nova trilha.':'Não foi possível confirmar este vídeo agora. O player não será exibido até a verificação. Reabra a trilha para tentar novamente.',card);return}
+ checking.remove();if(availability.title)card.querySelector('a').textContent=availability.title;
  const clip=source.clip;
  const hasClip=clip?.basis==='transcript'&&Number.isInteger(clip.startSeconds)&&Number.isInteger(clip.endSeconds)&&clip.startSeconds>=0&&clip.endSeconds>clip.startSeconds;
- const params=new URLSearchParams({playsinline:'1'});
+ const params=new URLSearchParams({playsinline:'1',enablejsapi:'1',origin:location.origin});
  if(hasClip){params.set('start',String(clip.startSeconds));params.set('end',String(clip.endSeconds));const external=new URL(url);external.searchParams.set('t',clip.startSeconds+'s');card.querySelector('a').href=external.href}
  const note=el('p',hasClip?'Trecho indicado: '+clock(clip.startSeconds)+'–'+clock(clip.endSeconds)+' · selecionado pela transcrição':source.transcript?.status==='available'?'Transcrição consultada; nenhum trecho com horário foi confirmado.':'Sem transcrição analisada: o vídeo começa do início.',card);note.className='video-caption';
  const shell=el('div','',card);shell.className='video-shell';shell.setAttribute('aria-label',source.title);
@@ -55,6 +74,19 @@ function installVideo(card,source,url){
   shell.classList.add('is-expanded');shell.setAttribute('role','dialog');shell.setAttribute('aria-modal','true');document.body.style.overflow='hidden';document.addEventListener('keydown',onKey);close.focus({preventScroll:true});
  };
  shell.addEventListener('click',e=>{if(e.target===shell)closeExpandedVideo()});
+ youtubePlayerAPI().then(YT=>{
+  if(!YT||!frame.isConnected)return;
+  new YT.Player(frame,{events:{onError:event=>{
+   if(![2,5,100,101,150,153].includes(Number(event.data)))return;
+   if(expandedVideo?.shell===shell)closeExpandedVideo();
+   frame.remove();expand.remove();toolbar.remove();
+   const unavailable=Number(event.data)===100;
+   if(unavailable)card.querySelector('a')?.remove();
+   note.textContent=unavailable?'Este vídeo foi removido ou ficou privado. Use outra fonte desta etapa ou gere uma nova trilha.':'Este vídeo não permitiu a reprodução aqui. Use outra fonte da etapa ou o link para abrir no YouTube.';
+   note.setAttribute('role','status');
+  }}});
+ }).catch(()=>{});
+
 }
 
 function render(data,key){

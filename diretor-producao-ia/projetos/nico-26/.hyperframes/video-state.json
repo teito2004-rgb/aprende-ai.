@@ -954,9 +954,9 @@
   },
   "renders": {
     "latest": {
-      "id": "59b0d652-1a55-486f-ae24-16180ef29f87",
-      "completedAt": 1794919350134,
-      "output": "/tmp/teste.mp4",
+      "id": "26c27362-db33-49ad-9cf1-1f422406464c",
+      "completedAt": 1794920798022,
+      "output": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/renders/Nico-Explica-Palavra-Repetida.mp4",
       "status": "completed",
       "revision": null
     },

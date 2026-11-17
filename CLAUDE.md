@@ -14,3 +14,15 @@ Espaço de trabalho de produção audiovisual: veja `diretor-producao-ia/README.
 
 ## Aprender algo novo
 Quando precisar de uma ferramenta, técnica ou assunto que não domina (ou errar a mesma coisa duas vezes), use a skill `ultra-aprendizado`. Antes, leia `Clayton cerebro/05-aprendizados/INDICE.md`; no fim, registre o que aprendeu ali.
+
+## Autonomia (autorizada pelo Clayton em 17/11/2026)
+Trabalhe e aprenda sozinho. Pesquisar, ler documentação, testar de graça, organizar arquivos e a Central, criar ou ajustar skills, prompts e comandos, registrar aprendizados e fazer commit/push na branch de trabalho não precisam de pergunta.
+
+Peça autorização só nas etapas cruciais:
+- gastar crédito ou dinheiro (geração de IA, GPU, compra, assinatura, consulta paga);
+- publicar, postar, enviar mensagem ou e-mail, ou mostrar algo a cliente ou a terceiros;
+- apagar algo que não dá para recuperar, mexer na `main` ou abrir/mesclar pull request;
+- compartilhar a Central ou dados de clientes, ou colocar dados pessoais no repositório (ele é público);
+- decisões criativas finais (aprovar roteiro, corte, voz, identidade) e qualquer mudança de rumo do projeto.
+
+Quando parar para perguntar, diga em uma linha o que vai fazer, quanto custa (se souber) e por quê, e espere o "sim". No fim de cada trabalho, conte em poucas linhas o que fez sozinho.

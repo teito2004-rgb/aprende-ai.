@@ -43,6 +43,7 @@ Toda ideia, projeto e item da biblioteca leva uma área: **Nico Explica**, **Cli
 5. **Nome padrão.** Projetos: `area-tema` em minúsculas (ex.: `nico-bocejo`). Resumos: `AAAA-MM-DD_HHhMM_tema_claude.md`.
 6. **Cliente é cliente.** Nada de um cliente vai para outro.
 7. **Créditos de IA só com "sim, pode gerar"** para aquela chamada específica.
+8. **O Claude trabalha e aprende sozinho** e só pergunta nas etapas cruciais: gastar crédito, publicar ou enviar algo, apagar o que não volta, mexer na `main`, compartilhar dados e decisões criativas finais (regra completa no `CLAUDE.md`).
 
 ## 4. Onde cada coisa está
 

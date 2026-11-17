@@ -33,4 +33,8 @@ Peça autorização só nas etapas cruciais:
 - compartilhar a Central ou dados de clientes, ou colocar dados pessoais no repositório (ele é público);
 - decisões criativas finais (aprovar roteiro, corte, voz, identidade) e qualquer mudança de rumo do projeto.
 
+Regras fixas do Clayton (17/11/2026):
+- **Vídeo pronto:** mandar o arquivo na conversa para ele assistir. Com o "ok" dele, subir no YouTube, sempre perguntando antes: **publicar ou rascunho?**
+- **GitHub:** liberado usar sempre que precisar, inclusive pesquisar repositórios e skills para criar agentes e subagentes. Abrir/mesclar pull request na `main` continua pedindo o "sim".
+
 Quando parar para perguntar, diga em uma linha o que vai fazer, quanto custa (se souber) e por quê, e espere o "sim". No fim de cada trabalho, conte em poucas linhas o que fez sozinho.

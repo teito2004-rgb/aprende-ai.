@@ -4,6 +4,7 @@
 | Comando | O que faz | Onde funciona | Arquivo |
 |---|---|---|---|
 | `/nico <pedido>` | Chama o Nico: episódio do Nico Explica → `nico-explica`; outra pesquisa → `nico-pesquisa-roteiro`; outros perfis → `equipe-produtora` | Claude Code com este repositório | [nico.md](nico.md) (cópia de `.claude/commands/nico.md`) |
+| `/jarvis <ordem>` | O Jarvis planeja e distribui para a equipe | Claude Code com este repo | [jarvis.md](jarvis.md) |
 | `/ideia <texto>` | Joga na caixa de entrada da Central | Claude Code com este repo | [ideia.md](ideia.md) |
 | `/triagem` | Ritual de segunda | Claude Code com este repo | [triagem.md](triagem.md) |
 | `/plano-diretor` | Ritual mensal | Claude Code com este repo | [plano-diretor.md](plano-diretor.md) |

@@ -6,6 +6,7 @@ Cópias em `02-skills/personalizadas/<nome>/`. No Claude.ai elas aparecem como `
 
 | Skill | Para que serve | Chamar com | Hash (17/11/2026) |
 |---|---|---|---|
+| [jarvis](02-skills/personalizadas/jarvis/SKILL.md) | O Claude como diretor: planeja, distribui para a equipe, contrata agentes/skills, presta contas. Para o chat: suba `02-skills/jarvis.zip`. | "Jarvis, …" · `/jarvis` | nova |
 | [equipe-produtora](02-skills/personalizadas/equipe-produtora/SKILL.md) | Perfis da equipe (Mayara, Jéssica, João, Natasha, Fran, Chico, Pablo, Picasso) | nome do agente | 5122edee7671* |
 | [nico-pesquisa-roteiro](02-skills/personalizadas/nico-pesquisa-roteiro/SKILL.md) | Nico investigador: pesquisa rastreável e roteiro para Reels/Shorts de qualquer nicho | `/nico`, "Nico, …" | 8af064ef3d7d* |
 | [nico-explica](02-skills/personalizadas/nico-explica/SKILL.md) | Série Nico Explica de ponta a ponta (pauta → vídeo HyperFrames → entrega) | `/nico episódio…` | 4c8ad0127059* |

@@ -45,7 +45,11 @@ Toda ideia, projeto e item da biblioteca leva uma área: **Nico Explica**, **Cli
 7. **Créditos de IA só com "sim, pode gerar"** para aquela chamada específica.
 8. **O Claude trabalha e aprende sozinho** e só pergunta nas etapas cruciais: gastar crédito, publicar ou enviar algo, apagar o que não volta, mexer na `main`, compartilhar dados e decisões criativas finais (regra completa no `CLAUDE.md`).
 
-## 4. Onde cada coisa está
+## 4. Quem manda e quem faz
+
+**Clayton** é o chefe: dá a ordem e aprova o que é crucial. **Jarvis** (o Claude) é o diretor: transforma a ordem em plano, distribui para a equipe, aprende o que falta, contrata novos agentes ou cria skills quando precisa, revisa e presta contas. A **equipe** executa (lista em `01-AGENTES.md`). Para dar uma ordem: `/jarvis <ordem>`, ou só falar "Jarvis, …".
+
+## 5. Onde cada coisa está
 
 | Coisa | Onde |
 |---|---|
@@ -55,10 +59,11 @@ Toda ideia, projeto e item da biblioteca leva uma área: **Nico Explica**, **Cli
 | Base completa com dados pessoais | PC: `Documents\Codex\Clayton cerebro` |
 | Resumos de conversa | PC: `Clayton cerebro\04-conversas\resumos` |
 
-## 5. Comandos
+## 6. Comandos
 
 | Comando | Faz |
 |---|---|
+| `/jarvis <ordem>` | Dá uma ordem ao Jarvis, que planeja e distribui |
 | `/ideia <texto>` | Põe na Caixa de entrada do site |
 | `/triagem` | Ritual semanal: esvazia a Caixa de entrada com você |
 | `/plano-diretor` | Ritual mensal |

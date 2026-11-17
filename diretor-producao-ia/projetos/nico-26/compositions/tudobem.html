@@ -1,0 +1,27 @@
+<template>
+<style>#root{position:absolute;inset:0;overflow:hidden;font-family:Inter,sans-serif;color:#171B18}
+.bg{position:absolute;inset:0}
+.tit{position:absolute;left:120px;right:160px;top:300px;font-size:84px;font-weight:900;line-height:1.05;letter-spacing:-0.025em}
+.ilu{position:absolute;left:0;right:0;top:500px;height:520px;display:flex;align-items:center;justify-content:center}
+.card{border:9px solid #171B18;border-radius:34px;display:flex;align-items:center;justify-content:center;font-weight:900;letter-spacing:-0.01em;text-align:center;line-height:1.05}
+.nota{position:absolute;left:150px;right:200px;top:1050px;text-align:center;font-size:32px;font-weight:500;opacity:.8}
+.like{display:flex;align-items:center;justify-content:center;gap:22px}
+.like-c{width:120px;height:120px;border-radius:60px;background:#27CDE0;border:7px solid #171B18;display:flex;align-items:center;justify-content:center}
+.like-p{padding:20px 40px;border-radius:60px;border:7px solid #171B18;background:#fff;font-size:48px;font-weight:800}
+#tb-box{position:absolute;left:150px;right:150px;top:600px;display:flex;flex-direction:column;gap:34px}
+.tb{height:140px;border:8px solid #171B18;border-radius:30px;background:#FFFFFF;font-size:52px;font-weight:800;display:flex;align-items:center;padding:0 44px}</style>
+<div id="root" data-composition-id="tudobem" data-width="1080" data-height="1920">
+<div class="bg" style="background:#FFF9E9"></div>
+<div class="tit" id="tudobem-tit">Não sentiu nada?<br>Tudo bem.</div>
+<div id="tb-box"><div class="tb" id="tb1">nem todo mundo sente</div><div class="tb" id="tb2">nem todo teste mostra</div></div>
+
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#tudobem-tit",{opacity:0,y:24},{opacity:1,y:0,duration:0.3,ease:"power3.out"},0.0);
+tl.fromTo("#tb1",{opacity:0,y:36},{opacity:1,y:0,duration:0.4,ease:"power3.out"},1.6);
+tl.fromTo("#tb2",{opacity:0,y:36},{opacity:1,y:0,duration:0.4,ease:"power3.out"},3.2);
+tl.to({}, { duration: 5.4 }, 0);
+window.__timelines["tudobem"] = tl;
+</script>
+</template>

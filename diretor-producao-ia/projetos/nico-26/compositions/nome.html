@@ -1,24 +1,25 @@
 <template>
-<style>
-#root { position:absolute; inset:0; overflow:hidden; font-family:Inter, sans-serif; color:#171B18; }
-.bg { position:absolute; inset:0; }
-.titulo { position:absolute; left:120px; right:180px; font-weight:800; font-size:78px; line-height:1.08; letter-spacing:-0.02em; }
-.nota { position:absolute; left:120px; right:180px; font-size:29px; font-weight:500; opacity:.75; }
+<style>#root{position:absolute;inset:0;overflow:hidden;font-family:Inter,sans-serif;color:#171B18}
+.bg{position:absolute;inset:0}
+.tit{position:absolute;left:120px;right:160px;top:300px;font-size:84px;font-weight:900;line-height:1.05;letter-spacing:-0.025em}
+.ilu{position:absolute;left:0;right:0;top:500px;height:520px;display:flex;align-items:center;justify-content:center}
+.card{border:9px solid #171B18;border-radius:34px;display:flex;align-items:center;justify-content:center;font-weight:900;letter-spacing:-0.01em;text-align:center;line-height:1.05}
+.nota{position:absolute;left:150px;right:200px;top:1050px;text-align:center;font-size:32px;font-weight:500;opacity:.8}
+.like{display:flex;align-items:center;justify-content:center;gap:22px}
+.like-c{width:120px;height:120px;border-radius:60px;background:#27CDE0;border:7px solid #171B18;display:flex;align-items:center;justify-content:center}
+.like-p{padding:20px 40px;border-radius:60px;border:7px solid #171B18;background:#fff;font-size:48px;font-weight:800}
 </style>
 <div id="root" data-composition-id="nome" data-width="1080" data-height="1920">
-  <div class="bg" style="background:#FFF9E9"></div>
-  <div id="nm-e" class="nota" style="top:560px">Isso tem nome:</div>
-<div id="nm-t" class="titulo" style="top:630px;font-size:104px">Saciedade<br>semântica</div>
-<div id="nm-l" style="position:absolute;left:120px;top:900px;width:260px;height:12px;border-radius:6px;background:#27CDE0;transform-origin:left center"></div>
-<div id="nm-n" class="nota" style="top:1040px">Termo de L. Jakobovits James (1962)</div>
+<div class="bg" style="background:#FFF9E9"></div>
+<div class="tit" id="nome-tit">Isso tem nome</div>
+<div class="ilu" id="nm-card"><div class="card" style="width:840px;height:240px;background:#FFFFFF;font-size:76px" >saciedade semântica</div></div>
+<div class="nota" id="nome-nota">Termo de L. Jakobovits James, 1962</div>
 </div>
 <script>
 const tl = gsap.timeline({ paused: true });
-tl.fromTo("#nm-e", {opacity:0, y:40}, {opacity:1, y:0, duration:0.45, ease:"power3.out"}, 0);
-tl.fromTo("#nm-t", {opacity:0, y:40}, {opacity:1, y:0, duration:0.45, ease:"power3.out"}, 0.35);
-tl.fromTo("#nm-l",{scaleX:0},{scaleX:1,duration:0.6,ease:"power3.out"},0.8);
-tl.fromTo("#nm-n", {opacity:0, y:20}, {opacity:1, y:0, duration:0.45, ease:"power3.out"}, 0.5);
-
+tl.fromTo("#nome-tit",{opacity:0,y:24},{opacity:1,y:0,duration:0.3,ease:"power3.out"},0.0);
+tl.fromTo("#nm-card",{opacity:0,scale:0.85},{opacity:1,scale:1,duration:0.35,ease:"back.out(2)"},1.15);
+tl.fromTo("#nome-nota",{opacity:0,y:12},{opacity:1,y:0,duration:0.4,ease:"power3.out"},0.5);
 tl.to({}, { duration: 3.0 }, 0);
 window.__timelines["nome"] = tl;
 </script>

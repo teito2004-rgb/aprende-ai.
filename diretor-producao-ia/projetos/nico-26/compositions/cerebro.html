@@ -1,0 +1,32 @@
+<template>
+<style>
+#root { position:absolute; inset:0; overflow:hidden; font-family:Inter, sans-serif; color:#171B18; }
+.bg { position:absolute; inset:0; }
+.titulo { position:absolute; left:120px; right:180px; font-weight:800; font-size:78px; line-height:1.08; letter-spacing:-0.02em; }
+.nota { position:absolute; left:120px; right:180px; font-size:29px; font-weight:500; opacity:.75; }
+</style>
+<div id="root" data-composition-id="cerebro" data-width="1080" data-height="1920">
+  <div class="bg" style="background:#FFF9E9"></div>
+  <div id="cb-t" class="titulo" style="top:330px;font-size:66px">Sinal do significado</div>
+<svg id="cb-g" style="position:absolute;left:120px;top:500px" width="780" height="460" viewBox="0 -300 780 460">
+  <line x1="0" y1="0" x2="780" y2="0" stroke="#171B18" stroke-opacity=".25" stroke-width="3"/>
+  <polyline id="cb-a" points="0,0.0 10,0.0 20,0.0 30,0.0 40,0.0 50,0.0 60,0.0 70,0.0 80,0.0 90,0.0 100,0.0 110,0.0 120,0.0 130,0.0 140,0.0 150,0.0 160,0.0 170,0.0 180,0.0 190,0.0 200,-1.7 210,-2.8 220,-4.4 230,-6.8 240,-10.2 250,-14.9 260,-21.3 270,-29.8 280,-40.6 290,-53.9 300,-69.8 310,-88.3 320,-108.9 330,-131.1 340,-153.9 350,-176.3 360,-197.0 370,-214.8 380,-228.4 390,-237.1 400,-240.0 410,-237.1 420,-228.4 430,-214.8 440,-197.0 450,-176.3 460,-153.9 470,-131.1 480,-108.9 490,-88.3 500,-69.8 510,-53.9 520,-40.6 530,-29.8 540,-21.3 550,-14.9 560,-10.2 570,-6.8 580,-4.4 590,-2.8 600,-1.7 610,-1.0 620,-0.6 630,-0.3 640,-0.2 650,-0.1 660,-0.1 670,-0.0 680,-0.0 690,-0.0 700,-0.0 710,-0.0 720,-0.0 730,-0.0 740,-0.0 750,-0.0 760,-0.0 770,-0.0 780,-0.0" fill="none" stroke="#171B18" stroke-width="9" stroke-linecap="round"/>
+  <polyline id="cb-b" points="0,0.0 10,0.0 20,0.0 30,0.0 40,0.0 50,0.0 60,0.0 70,0.0 80,0.0 90,0.0 100,0.0 110,0.0 120,0.0 130,0.0 140,0.0 150,0.0 160,0.0 170,0.0 180,0.0 190,0.0 200,-0.8 210,-1.3 220,-2.0 230,-3.1 240,-4.7 250,-6.8 260,-9.8 270,-13.7 280,-18.6 290,-24.7 300,-32.0 310,-40.5 320,-49.9 330,-60.1 340,-70.5 350,-80.8 360,-90.3 370,-98.4 380,-104.7 390,-108.7 400,-110.0 410,-108.7 420,-104.7 430,-98.4 440,-90.3 450,-80.8 460,-70.5 470,-60.1 480,-49.9 490,-40.5 500,-32.0 510,-24.7 520,-18.6 530,-13.7 540,-9.8 550,-6.8 560,-4.7 570,-3.1 580,-2.0 590,-1.3 600,-0.8 610,-0.5 620,-0.3 630,-0.2 640,-0.1 650,-0.0 660,-0.0 670,-0.0 680,-0.0 690,-0.0 700,-0.0 710,-0.0 720,-0.0 730,-0.0 740,-0.0 750,-0.0 760,-0.0 770,-0.0 780,-0.0" fill="none" stroke="#27CDE0" stroke-width="9" stroke-linecap="round"/>
+</svg>
+<div id="cb-la" class="nota" style="top:960px;opacity:1;font-weight:700">— depois de 3 repetições</div>
+<div id="cb-lb" class="nota" style="top:1000px;opacity:1;font-weight:700;color:#0d8fa0">— depois de 30: mais fraco</div>
+<div id="cb-f" class="nota" style="top:1050px;font-size:26px">Kounios et al. (2000); Ströberg et al. (2017) · ilustrativo</div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#cb-t", {opacity:0, y:40}, {opacity:1, y:0, duration:0.45, ease:"power3.out"}, 0);
+tl.fromTo("#cb-a",{opacity:0},{opacity:1,duration:0.6},0.5);
+tl.fromTo("#cb-la", {opacity:0, y:15}, {opacity:1, y:0, duration:0.45, ease:"power3.out"}, 0.6);
+tl.fromTo("#cb-b",{opacity:0},{opacity:1,duration:0.6},4.6);
+tl.fromTo("#cb-lb", {opacity:0, y:15}, {opacity:1, y:0, duration:0.45, ease:"power3.out"}, 4.6);
+tl.fromTo("#cb-f", {opacity:0, y:15}, {opacity:1, y:0, duration:0.45, ease:"power3.out"}, 5.06);
+
+tl.to({}, { duration: 9.2 }, 0);
+window.__timelines["cerebro"] = tl;
+</script>
+</template>

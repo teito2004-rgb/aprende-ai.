@@ -1,0 +1,301 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "This HTML file has 45 timed elements. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/compositions/legendas.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      }
+    ],
+    "filesScanned": 10
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": false,
+    "errorCount": 1,
+    "warningCount": 2,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 30.04,
+        "selector": "#lb-t",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 120,
+          "top": 325,
+          "right": 565.44,
+          "bottom": 476.27,
+          "width": 445.44,
+          "height": 151.27
+        },
+        "containerSelector": "#lb-q",
+        "text": "Ver o nome da categoria…",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply. Decoration nobody needs to read can take data-layout-ignore.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/laboratorio.html",
+        "bbox": {
+          "x": 120,
+          "y": 325,
+          "width": 445.44,
+          "height": 151.27
+        },
+        "firstSeen": 27.187,
+        "lastSeen": 31.886,
+        "occurrences": 16,
+        "heldMs": 4698.999999999998,
+        "times": [
+          27.187,
+          27.523,
+          27.858,
+          28.194,
+          28.53,
+          28.865,
+          29.201,
+          29.537,
+          29.872,
+          30.04,
+          30.208,
+          30.543,
+          30.879,
+          31.215,
+          31.55,
+          31.886
+        ]
+      },
+      {
+        "selector": "#lg7",
+        "dataAttributes": {
+          "data-start": "8.13",
+          "data-duration": "2.36",
+          "data-track-index": "1"
+        },
+        "sourceFile": "compositions/legendas.html",
+        "bbox": {
+          "x": 224.17,
+          "y": 1176,
+          "width": 531.66,
+          "height": 103.59
+        },
+        "time": 10.013,
+        "rect": {
+          "left": 224.17,
+          "top": 1176,
+          "right": 755.83,
+          "bottom": 1279.59,
+          "width": 531.66,
+          "height": 103.59
+        },
+        "code": "outside_safe_zone",
+        "severity": "warning",
+        "text": "cadeira, cadeira, cadeira, cadeira,",
+        "message": "<div> \"cadeira, cadeira, cadeira, cadeira,\" is outside the safe area: TikTok (bottom edge), Instagram Reels (bottom edge), YouTube Shorts (bottom edge).",
+        "fixHint": "Move the text inside the safe area, or mark text meant to sit there with data-layout-allow-safe-zone.",
+        "firstSeen": 10.013,
+        "lastSeen": 10.013,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          10.013
+        ]
+      },
+      {
+        "selector": "#lg27",
+        "dataAttributes": {
+          "data-start": "34.92",
+          "data-duration": "1.98",
+          "data-track-index": "1"
+        },
+        "sourceFile": "compositions/legendas.html",
+        "bbox": {
+          "x": 186.53,
+          "y": 1176,
+          "width": 606.94,
+          "height": 52
+        },
+        "time": 36.716,
+        "rect": {
+          "left": 186.53,
+          "top": 1176,
+          "right": 793.47,
+          "bottom": 1228,
+          "width": 606.94,
+          "height": 52
+        },
+        "code": "outside_safe_zone",
+        "severity": "warning",
+        "text": "cérebro ligada ao significado",
+        "message": "<div> \"cérebro ligada ao significado\" is outside the safe area: TikTok (right edge).",
+        "fixHint": "Move the text inside the safe area, or mark text meant to sit there with data-layout-allow-safe-zone.",
+        "firstSeen": 36.716,
+        "lastSeen": 36.716,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          36.716
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 16.689,
+        "selector": "#es-like",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 120,
+          "top": 1056,
+          "right": 643.31,
+          "bottom": 1188.63,
+          "width": 523.31,
+          "height": 132.63
+        },
+        "containerSelector": "#lg13",
+        "text": "👍 Deixa um like se funcionou",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.17,
+        "dataAttributes": {},
+        "sourceFile": "compositions/estranha.html",
+        "bbox": {
+          "x": 120,
+          "y": 1056,
+          "width": 523.31,
+          "height": 132.63
+        },
+        "firstSeen": 16.689,
+        "lastSeen": 16.689,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          16.689
+        ]
+      }
+    ],
+    "duration": 60.08,
+    "samples": [
+      3.338,
+      10.013,
+      16.689,
+      23.364,
+      30.04,
+      36.716,
+      43.391,
+      50.067,
+      56.742
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 4,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      3.338,
+      16.689,
+      30.04,
+      43.391,
+      56.742
+    ],
+    "checked": 30,
+    "passed": 30
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "film_silent",
+        "severity": "warning",
+        "message": "This 60 s film has no sound source (no <audio>, no <video> with sound): add a music bed and sounds on the visible actions unless the person asked for silence; see references/sound.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 481
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "audio_none",
+        "severity": "info",
+        "message": "The film has no sound: no clip in it plays audio.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      }
+    ]
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

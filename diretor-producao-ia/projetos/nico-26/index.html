@@ -1,61 +1,29 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1920, height=1080" />
+    <meta name="viewport" content="width=1080, height=1920" />
     <script src="assets/vendor/gsap.min.js"></script>
     <style>
-      /* Placeholders: replace all three with the film's own palette and display face. */
-      :root {
-        --ground: #000;
-        --ink: #ffffff;
-        --font-display: sans-serif;
-      }
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        margin: 0;
-        width: 1920px;
-        height: 1080px;
-        overflow: hidden;
-        background: var(--ground);
-      }
-      #root {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: var(--font-display);
-      }
-      #title {
-        color: var(--ink);
-        font-size: 72px;
-        font-weight: 600;
-        letter-spacing: -0.03em;
-      }
+      * { margin:0; padding:0; box-sizing:border-box; }
+      html, body { width:1080px; height:1920px; overflow:hidden; background:#FFF9E9; }
     </style>
   </head>
   <body>
-    <div
-      id="root"
-      data-composition-id="main"
-      data-start="0"
-      data-duration="2"
-      data-width="1920"
-      data-height="1080"
-    >
-      <h1 id="title" class="clip" data-start="0" data-duration="2" data-track-index="0">Title</h1>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="60.08" data-width="1080" data-height="1920" data-fps="30">
+      <div id="convite" data-composition-id="convite" data-composition-src="compositions/convite.html" data-start="0.0" data-duration="5.78" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="repeticao" data-composition-id="repeticao" data-composition-src="compositions/repeticao.html" data-start="5.78" data-duration="5.85" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="estranha" data-composition-id="estranha" data-composition-src="compositions/estranha.html" data-start="11.63" data-duration="6.44" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="nome" data-composition-id="nome" data-composition-src="compositions/nome.html" data-start="18.07" data-duration="2.3" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="laboratorio" data-composition-id="laboratorio" data-composition-src="compositions/laboratorio.html" data-start="20.37" data-duration="11.76" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="cerebro" data-composition-id="cerebro" data-composition-src="compositions/cerebro.html" data-start="32.13" data-duration="9.2" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="hipotese" data-composition-id="hipotese" data-composition-src="compositions/hipotese.html" data-start="41.33" data-duration="9.14" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="final" data-composition-id="final" data-composition-src="compositions/final.html" data-start="50.47" data-duration="9.61" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="legendas" data-composition-id="legendas" data-composition-src="compositions/legendas.html" data-start="0" data-duration="60.08" data-track-index="2" data-track-kind="captions" data-width="1080" data-height="1920"></div>
+
     </div>
     <script>
-      const tl = gsap.timeline({ paused: true });
-      // Example: tl.fromTo("#title", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 0);
-      window.__timelines["main"] = tl;
-      tl.seek(0);
+      window.__timelines["main"] = gsap.timeline({ paused: true });
     </script>
   </body>
 </html>

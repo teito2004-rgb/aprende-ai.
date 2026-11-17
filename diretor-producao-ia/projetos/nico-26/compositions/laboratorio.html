@@ -1,0 +1,33 @@
+<template>
+<style>
+#root { position:absolute; inset:0; overflow:hidden; font-family:Inter, sans-serif; color:#171B18; }
+.bg { position:absolute; inset:0; }
+.titulo { position:absolute; left:120px; right:180px; font-weight:800; font-size:78px; line-height:1.08; letter-spacing:-0.02em; }
+.nota { position:absolute; left:120px; right:180px; font-size:29px; font-weight:500; opacity:.75; }
+.lb-row{position:absolute;left:120px;right:120px;height:120px}.lb-k{display:block;font-size:40px;font-weight:700;margin-bottom:10px}.lb-bar{height:56px;border-radius:12px;transform-origin:left center}</style>
+<div id="root" data-composition-id="laboratorio" data-width="1080" data-height="1920">
+  <div class="bg" style="background:#FFDC44"></div>
+  <div id="lb-t" class="titulo" style="top:330px;font-size:66px">Ver o nome da categoria…</div>
+<div id="lb-q" class="titulo" style="top:500px;font-size:52px;font-weight:700">“maçã” é uma fruta?</div>
+<div class="lb-row" id="lb-r1" style="top:600px"><span class="lb-k">3 vezes</span><div class="lb-bar" id="lb-b1" style="width:300px;background:#171B18"></div></div>
+<div class="lb-row" id="lb-r2" style="top:780px"><span class="lb-k">30 vezes</span><div class="lb-bar" id="lb-b2" style="width:520px;background:#171B18"></div></div>
+<div id="lb-ax" class="nota" style="top:900px">tempo para responder (ilustrativo)</div>
+<div id="lb-r" class="titulo" style="top:960px;font-size:60px">Resposta mais lenta</div>
+<div id="lb-f" class="nota" style="top:1050px">Smith &amp; Klein (1990)</div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#lb-t", {opacity:0, y:40}, {opacity:1, y:0, duration:0.45, ease:"power3.out"}, 0);
+tl.fromTo("#lb-q", {opacity:0, y:40}, {opacity:1, y:0, duration:0.45, ease:"power3.out"}, 6.47);
+tl.fromTo("#lb-r1", {opacity:0, y:40}, {opacity:1, y:0, duration:0.45, ease:"power3.out"}, 1.76);
+tl.fromTo("#lb-b1",{scaleX:0},{scaleX:1,duration:0.8,ease:"power2.out"},1.96);
+tl.fromTo("#lb-r2", {opacity:0, y:40}, {opacity:1, y:0, duration:0.45, ease:"power3.out"}, 4.12);
+tl.fromTo("#lb-b2",{scaleX:0},{scaleX:1,duration:1.6,ease:"power2.out"},4.32);
+tl.fromTo("#lb-ax", {opacity:0, y:15}, {opacity:1, y:0, duration:0.45, ease:"power3.out"}, 4.7);
+tl.fromTo("#lb-r", {opacity:0, y:40}, {opacity:1, y:0, duration:0.45, ease:"power3.out"}, 8.23);
+tl.fromTo("#lb-f", {opacity:0, y:15}, {opacity:1, y:0, duration:0.45, ease:"power3.out"}, 8.47);
+
+tl.to({}, { duration: 11.76 }, 0);
+window.__timelines["laboratorio"] = tl;
+</script>
+</template>

@@ -6,4 +6,4 @@ Ler este índice no começo de qualquer tarefa com ferramenta, técnica ou assun
 
 | Data | Tema | Status | Arquivo |
 |---|---|---|---|
-| — | _(nenhum ainda)_ | | |
+| 2026-11-17 | Produzir o Nico Explica na nuvem (HyperFrames, voz, som) | confirmado, download pendente | [producao-nico-na-nuvem.md](producao-nico-na-nuvem.md) |

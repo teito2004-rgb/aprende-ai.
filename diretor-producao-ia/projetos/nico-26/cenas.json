@@ -1,0 +1,13 @@
+{
+  "duracao_voz": 58.88,
+  "cenas": [
+    {"id": "convite", "cor": "amarelo", "fala": "Faz comigo: repete em voz alta, sem parar, uma palavra bem comum. Pode ser cadeira. Vai:"},
+    {"id": "repeticao", "cor": "creme", "fala": "cadeira, cadeira, cadeira, cadeira, cadeira, cadeira, cadeira, cadeira, cadeira, cadeira."},
+    {"id": "estranha", "cor": "amarelo", "fala": "Ficou estranha? Parece só um som? Se aconteceu com você, deixa um like pra eu saber que funcionou."},
+    {"id": "nome", "cor": "creme", "fala": "Isso tem nome: saciedade semântica."},
+    {"id": "laboratorio", "cor": "amarelo", "fala": "Em laboratório, depois de ver o nome de uma categoria umas trinta vezes, em vez de três, as pessoas demoram mais pra dizer se uma palavra pertence a ela, tipo se maçã é uma fruta."},
+    {"id": "cerebro", "cor": "creme", "fala": "E, em estudos com eletrodos, a resposta do cérebro ligada ao significado ficou mais fraca depois de trinta repetições do que depois de três."},
+    {"id": "hipotese", "cor": "amarelo", "fala": "Uma hipótese: de tanto repetir, a ligação entre o som e o sentido cansa por um momento. Onde exatamente isso acontece ainda está em debate."},
+    {"id": "final", "cor": "creme", "fala": "Se não sentiu nada, tudo bem: o efeito não aparece pra todo mundo, nem em todo teste. Qual palavra ficou mais estranha pra você?"}
+  ]
+}

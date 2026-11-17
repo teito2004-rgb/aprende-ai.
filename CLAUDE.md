@@ -12,6 +12,8 @@ Nunca gaste créditos em ferramentas de IA (geração de imagem, vídeo, voz, m�
 - Nunca repita uma geração para "tentar de novo" sem nova autorização.
 - Consultas gratuitas e somente leitura (listar projetos, ver saldo, listar vozes/modelos, ler arquivos) podem ser feitas sem pedir.
 - Toda geração autorizada é registrada em `diretor-producao-ia/ferramentas/registro-creditos.md`.
+- **Voz (ElevenLabs):** antes de cada geração, pergunte ao Clayton com o texto final e o custo estimado em créditos (use `estimate_only`, que é grátis). Uma tomada por vez.
+- **Baixar o que já foi gerado** (ex.: o MP3 da voz em `elevenlabsusercontent.com`) está autorizado pelo Clayton (17/11/2026) e não precisa de nova pergunta.
 
 Espaço de trabalho de produção audiovisual: veja `diretor-producao-ia/README.md`.
 

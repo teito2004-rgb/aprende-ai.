@@ -1,3 +1,7 @@
 renders/
 node_modules/
 .debug/
+audio/*.wav
+assets/*.wav
+som/saida/*.wav
+.hyperframes/

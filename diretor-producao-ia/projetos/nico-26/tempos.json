@@ -1,53 +1,53 @@
 {
- "estimado": true,
+ "estimado": false,
  "total": 60.08,
  "cenas": [
   {
    "id": "convite",
    "inicio": 0.0,
-   "fim": 5.78,
+   "fim": 6.8,
    "cor": "amarelo"
   },
   {
    "id": "repeticao",
-   "inicio": 5.78,
-   "fim": 11.63,
+   "inicio": 6.8,
+   "fim": 13.38,
    "cor": "creme"
   },
   {
    "id": "estranha",
-   "inicio": 11.63,
-   "fim": 18.07,
+   "inicio": 13.38,
+   "fim": 20.2,
    "cor": "amarelo"
   },
   {
    "id": "nome",
-   "inicio": 18.07,
-   "fim": 20.37,
+   "inicio": 20.2,
+   "fim": 23.2,
    "cor": "creme"
   },
   {
    "id": "laboratorio",
-   "inicio": 20.37,
-   "fim": 32.13,
+   "inicio": 23.2,
+   "fim": 33.68,
    "cor": "amarelo"
   },
   {
    "id": "cerebro",
-   "inicio": 32.13,
-   "fim": 41.33,
+   "inicio": 33.68,
+   "fim": 41.94,
    "cor": "creme"
   },
   {
    "id": "hipotese",
-   "inicio": 41.33,
-   "fim": 50.47,
+   "inicio": 41.94,
+   "fim": 50.98,
    "cor": "amarelo"
   },
   {
    "id": "final",
-   "inicio": 50.47,
-   "fim": 60.08,
+   "inicio": 50.98,
+   "fim": 60.080000000000005,
    "cor": "creme"
   }
  ]

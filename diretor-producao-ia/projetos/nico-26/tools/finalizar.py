@@ -31,6 +31,8 @@ acum, usado = 0, 0.0
 cenas[0]["inicio"] = 0.0
 for k, c in enumerate(cenas[1:], 1):
     acum += len(cenas[k - 1]["fala"])
+    if "inicio_manual" in c:  # medido ouvindo/lendo as pausas: prevalece
+        c["inicio"] = c["inicio_manual"]; usado = c["inicio"]; print(f"  {c['id']:12s} manual {c['inicio']:6.2f}"); continue
     alvo = dur * acum / total_chars
     cands = [p for p in pausas if p[0] > usado + 0.8 and abs(p[0] - alvo) < 2.5]
     if cands:

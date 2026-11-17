@@ -1,41 +1,69 @@
 ---
 name: ultra-aprendizado
-description: "Montar e conduzir um plano para aprender qualquer habilidade rápido e a fundo (ferramenta de IA, edição, som, roteiro, idioma, negócio), baseado nos 9 princípios do Ultra-aprendizado de Scott H. Young. Usar quando Clayton disser 'quero aprender X', 'me ensina X rápido', 'monta um plano de estudo', 'como domino essa ferramenta' ou pedir para revisar como está aprendendo algo."
+description: "Ultraaprendizado — aprender qualquer habilidade de forma rápida, profunda e eficiente (ferramenta de IA, edição, som, roteiro, idioma, vendas), com os 9 princípios, a fórmula e o checklist diário do Clayton, baseados no livro Ultra-aprendizado de Scott H. Young. Usar quando Clayton disser 'quero aprender X', 'me ensina X rápido', 'monta um plano de estudo', 'como domino essa ferramenta', pedir o checklist do dia ou revisar como está aprendendo algo."
 ---
 
-# Ultra-aprendizado
+# Ultraaprendizado
 
-Método para aprender algo difícil em pouco tempo, com projeto próprio, intensidade e foco no uso real. Baseado nas ideias públicas do livro *Ultra-aprendizado* (Scott H. Young), escritas aqui com outras palavras. Não substitui o livro e não cita trechos dele.
+**Objetivo:** aprender qualquer habilidade de forma rápida, profunda e eficiente.
 
-## Quando usar
-- Clayton quer dominar uma habilidade nova (ex.: Seedance, After Effects, mixagem, inglês para clientes, tráfego pago).
-- Um agente da equipe precisa subir de nível num assunto antes de um projeto.
-- Revisar um aprendizado que travou.
+> "Aprender melhor vale mais do que estudar mais."
 
-## Os 9 princípios, em uso prático
+Base: versão do Clayton (17/11/2026), a partir do livro *Ultra-aprendizado* (Scott H. Young). Não reproduz trechos do livro.
 
-| # | Princípio | Pergunta que ele responde | Na prática |
-|---|---|---|---|
-| 1 | **Metaprendizado** | Como é o mapa disso? | Gastar ~10% do tempo total antes de começar: **por que** aprender (objetivo concreto), **o quê** (separar conceitos, fatos e procedimentos) e **como** (ver como outros aprenderam: cursos, criadores, currículos). Marcar o que é fácil e o que vai ser gargalo. |
-| 2 | **Foco** | Consigo começar e ficar? | Blocos curtos e protegidos (25–50 min), celular longe, uma tarefa por bloco. Começar mal é melhor que não começar. |
-| 3 | **Ser direto** | Estou treinando o que vou usar? | Aprender fazendo a coisa real: para aprender Seedance, gerar cenas de um projeto de verdade (com autorização de crédito), não só ver tutorial. Se o real é caro, simular o mais perto possível. |
-| 4 | **Treino isolado** | Qual é o pedaço que me trava? | Achar o componente que limita o resultado e treinar só ele, em repetição (ex.: só ganchos de 3 s; só sincronia de fala; só ducking). Depois voltar ao todo. |
-| 5 | **Recuperação** | Consigo lembrar sem olhar? | Testar-se em vez de reler: explicar de memória, refazer do zero, flashcards, "fechar o tutorial e repetir". Esforço para lembrar é o que fixa. |
-| 6 | **Feedback** | Como sei se está bom? | Buscar retorno rápido e honesto: métrica (Fran), crítica (Chico), comparação lado a lado com uma referência. Separar ruído de sinal; não se abalar nem se acomodar. |
-| 7 | **Retenção** | Vou lembrar daqui a 3 meses? | Revisão espaçada (1 dia, 3 dias, 1 semana, 1 mês); transformar conhecimento em procedimento (checklist, skill, prompt salvo na Central); praticar um pouco além do necessário. |
-| 8 | **Intuição** | Entendo de verdade ou decorei? | Técnica Feynman: explicar como se fosse para uma criança; onde travar, é lacuna. Insistir um pouco mais antes de pedir a resposta. Montar exemplos próprios. |
-| 9 | **Experimentação** | E agora, como vou além? | Depois do básico, testar estilos, restrições e combinações (ex.: refazer a mesma cena em 3 estilos). É aqui que nasce a assinatura própria. |
+## Princípios fundamentais
+
+**1. Metalearning (aprender a aprender).** Definir por que, o que e como aprender, e criar um mapa da habilidade antes de começar. Perguntas: Qual é meu objetivo? Quais competências preciso dominar? Quais recursos vou usar? (Reservar ~10% do tempo para isso; separar conceitos, fatos e procedimentos.)
+
+**2. Foco.** Eliminar distrações, criar blocos de concentração profunda, evitar multitarefa, priorizar a qualidade da atenção. Regra: quando estiver estudando, faça apenas uma coisa.
+
+**3. Direção.** Aprender diretamente na prática, simular situações reais, aplicar na hora. Quer falar inglês? Fale inglês. Quer programar? Programe. Quer vender? Venda. Quer dominar Seedance? Gere cenas de um projeto real (com autorização de crédito).
+
+**4. Exercício (drill).** Identificar pontos fracos, isolar a dificuldade e praticar especificamente o gargalo. Pergunta: "O que está me impedindo de avançar?"
+
+**5. Recuperação.** Testar para aprender: perguntas sem consultar material, explicar de memória, flashcards. Regra: lembrar é melhor que reler.
+
+**6. Feedback.** Buscar críticas rápidas, corrigir erros na hora, separar o ego do aprendizado. Pergunta: "O que posso melhorar?" (Na equipe: Chico critica, Fran mede.)
+
+**7. Retenção.** Revisão espaçada (1 dia, 3 dias, 1 semana, 1 mês), prática constante, repetição inteligente. Objetivo: virar memória de longo prazo. O que vira procedimento vai para a Biblioteca da Central.
+
+**8. Intuição.** Entender a fundo, buscar os princípios, explicar de forma simples. Técnica Feynman:
+1. Escreva o conceito.
+2. Explique como para uma criança.
+3. Identifique as lacunas.
+4. Reestude.
+5. Explique novamente.
+
+**9. Experimentação.** Testar novos métodos, adaptar abordagens, criar estratégias próprias, sair da zona de conforto. É aqui que nasce o estilo próprio.
+
+## Mentalidade
+Aprender fazendo · errar rápido · receber feedback sempre · revisar continuamente · experimentar sem medo.
+
+## Fórmula
+Planejar → Focar → Praticar → Testar → Receber feedback → Revisar → Entender profundamente → Experimentar → Dominar
+
+## Checklist diário
+- [ ] Estudei sem distrações.
+- [ ] Pratiquei em situação real.
+- [ ] Testei meu conhecimento.
+- [ ] Corrigi erros.
+- [ ] Revisei conteúdos importantes.
+- [ ] Expliquei algo de memória.
+- [ ] Experimentei uma melhoria no método.
+
+## Resultado esperado
+Aprendizagem acelerada, maior retenção, competências reais, autonomia intelectual e crescimento contínuo.
 
 ## Fluxo da skill
 
 1. **Entender o pedido.** O que aprender, para quê (resultado concreto), prazo, horas por semana, nível atual. Se faltar, perguntar só o essencial.
-2. **Mapa (metaprendizado).** Entregar:
+2. **Mapa (metalearning).** Responder às três perguntas do princípio 1 e Entregar:
    - objetivo em uma frase verificável ("em 4 semanas, gerar uma cena de 30 s com 2 personagens falando, sem refazer mais de 2 vezes");
    - lista de conceitos / fatos / procedimentos;
    - 3 a 5 recursos de referência, com link e data quando vierem de pesquisa (Nico pode ajudar), nada inventado;
    - o provável gargalo.
 3. **Plano em ciclos.** Semanas com: projeto direto da semana, treino isolado do gargalo, sessão de recuperação, ponto de feedback, revisões espaçadas marcadas. Respeitar as horas disponíveis.
-4. **Durante.** Em cada conversa de estudo: começar com recuperação (o que você lembra da última?), depois prática direta, fechar com um teste curto. Registrar o que travou.
+4. **Durante.** Em cada conversa de estudo: começar com recuperação (o que você lembra da última?), depois prática direta, fechar com um teste curto e o checklist diário. Registrar o que travou.
 5. **Revisão semanal.** Junto com a `/triagem`: o que avançou, o que travou, ajustar o plano. Mudar de estratégia se o mesmo erro aparecer 3 vezes.
 6. **Guardar.** O que virou procedimento vai para a Biblioteca da Central (prompt, checklist) ou vira skill.
 

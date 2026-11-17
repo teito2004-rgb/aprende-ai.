@@ -1,7 +1,7 @@
 {
   "version": 1,
   "historyId": "dafabe0d-ff68-4305-be7b-c950dc0b810d",
-  "currentRevision": "0ebdc182-621f-49b1-ae96-98c62e729157",
+  "currentRevision": "fe4dd28d-40c6-4156-b30c-b8128e4c6e09",
   "pendingChanges": false,
   "files": {
     "AGENTS.md": {
@@ -49,8 +49,8 @@
       "content": "/root/.cache/hyperframes/history/dafabe0d-ff68-4305-be7b-c950dc0b810d/blobs/fd/fd27434f3f356d643cb0224e28688e3e900e47543fee5a24f92eddda33b3cc6d"
     },
     "compositions/legendas.html": {
-      "hash": "eb0ad58bac5835a1dcf3345774d4d0947e4886a97828ed25579d0270181b4499",
-      "content": "/root/.cache/hyperframes/history/dafabe0d-ff68-4305-be7b-c950dc0b810d/blobs/eb/eb0ad58bac5835a1dcf3345774d4d0947e4886a97828ed25579d0270181b4499"
+      "hash": "c7d6449af644f48717460fd7de55b60eb26152180a84230d74e1e35a564542cb",
+      "content": "/root/.cache/hyperframes/history/dafabe0d-ff68-4305-be7b-c950dc0b810d/blobs/c7/c7d6449af644f48717460fd7de55b60eb26152180a84230d74e1e35a564542cb"
     },
     "compositions/nome.html": {
       "hash": "8186b7a0fc6ead8e664a5e3d659f52c22ada02ed234e55c36381cde461edf949",
@@ -177,8 +177,8 @@
       "content": "/root/.cache/hyperframes/history/dafabe0d-ff68-4305-be7b-c950dc0b810d/blobs/81/817400b9896e9be9b516354174f48294564fc0de15b18e423d2f21a6bc718958"
     },
     "entrega/legendas.srt": {
-      "hash": "4dbf791d0feb8538c07c1ad7e239ae5baa8824728aa8633ee37c872b7cd62a72",
-      "content": "/root/.cache/hyperframes/history/dafabe0d-ff68-4305-be7b-c950dc0b810d/blobs/4d/4dbf791d0feb8538c07c1ad7e239ae5baa8824728aa8633ee37c872b7cd62a72"
+      "hash": "ec05af7c223914f18e73c310f9d652fa3fe7e14b8b11d4de6d84ead265da1aee",
+      "content": "/root/.cache/hyperframes/history/dafabe0d-ff68-4305-be7b-c950dc0b810d/blobs/ec/ec05af7c223914f18e73c310f9d652fa3fe7e14b8b11d4de6d84ead265da1aee"
     },
     "entrega/medicao.json": {
       "hash": "c61eb68b4ffe543cd90f3b46402e331a153f1d1ec1203508c49cb91c452465ed",
@@ -193,8 +193,12 @@
       "content": "/root/.cache/hyperframes/history/dafabe0d-ff68-4305-be7b-c950dc0b810d/blobs/1a/1a2cabd2dd1c7fb99f827d79eba293f4e5640187d390b8627a585aa4e3f643b8"
     },
     "tools/gerar_v2.py": {
-      "hash": "1b8e7d4adee3a3cc4858c4b4e7af91710a442d0438701feb19b3da4e08de0c2a",
-      "content": "/root/.cache/hyperframes/history/dafabe0d-ff68-4305-be7b-c950dc0b810d/blobs/1b/1b8e7d4adee3a3cc4858c4b4e7af91710a442d0438701feb19b3da4e08de0c2a"
+      "hash": "942100a251456e83865251b46f0ddf0353b2605102a4d5ea7676cf71ae016ac9",
+      "content": "/root/.cache/hyperframes/history/dafabe0d-ff68-4305-be7b-c950dc0b810d/blobs/94/942100a251456e83865251b46f0ddf0353b2605102a4d5ea7676cf71ae016ac9"
+    },
+    "entrega/Nico-Explica-Palavra-Repetida-v2.mp4": {
+      "hash": "65f79c348cffe01b9f21db945d54cb048aed1afbf8b08572c92498d7ef41bf97",
+      "content": "/root/.cache/hyperframes/history/dafabe0d-ff68-4305-be7b-c950dc0b810d/blobs/65/65f79c348cffe01b9f21db945d54cb048aed1afbf8b08572c92498d7ef41bf97"
     }
   },
   "revisions": {
@@ -733,6 +737,33 @@
           "after": "/root/.cache/hyperframes/history/dafabe0d-ff68-4305-be7b-c950dc0b810d/blobs/1b/1b8e7d4adee3a3cc4858c4b4e7af91710a442d0438701feb19b3da4e08de0c2a"
         }
       }
+    },
+    "fe4dd28d-40c6-4156-b30c-b8128e4c6e09": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1794922384226,
+      "endedAt": 1794922384268,
+      "files": {
+        "compositions/legendas.html": {
+          "before": "/root/.cache/hyperframes/history/dafabe0d-ff68-4305-be7b-c950dc0b810d/blobs/eb/eb0ad58bac5835a1dcf3345774d4d0947e4886a97828ed25579d0270181b4499",
+          "after": "/root/.cache/hyperframes/history/dafabe0d-ff68-4305-be7b-c950dc0b810d/blobs/c7/c7d6449af644f48717460fd7de55b60eb26152180a84230d74e1e35a564542cb"
+        },
+        "entrega/legendas.srt": {
+          "before": "/root/.cache/hyperframes/history/dafabe0d-ff68-4305-be7b-c950dc0b810d/blobs/4d/4dbf791d0feb8538c07c1ad7e239ae5baa8824728aa8633ee37c872b7cd62a72",
+          "after": "/root/.cache/hyperframes/history/dafabe0d-ff68-4305-be7b-c950dc0b810d/blobs/ec/ec05af7c223914f18e73c310f9d652fa3fe7e14b8b11d4de6d84ead265da1aee"
+        },
+        "entrega/Nico-Explica-Palavra-Repetida-v2.mp4": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/dafabe0d-ff68-4305-be7b-c950dc0b810d/blobs/65/65f79c348cffe01b9f21db945d54cb048aed1afbf8b08572c92498d7ef41bf97"
+        },
+        "tools/gerar_v2.py": {
+          "before": "/root/.cache/hyperframes/history/dafabe0d-ff68-4305-be7b-c950dc0b810d/blobs/1b/1b8e7d4adee3a3cc4858c4b4e7af91710a442d0438701feb19b3da4e08de0c2a",
+          "after": "/root/.cache/hyperframes/history/dafabe0d-ff68-4305-be7b-c950dc0b810d/blobs/94/942100a251456e83865251b46f0ddf0353b2605102a4d5ea7676cf71ae016ac9"
+        }
+      }
     }
   },
   "checks": {
@@ -1011,8 +1042,8 @@
   },
   "snapshots": {
     "latest": {
-      "revision": "0ebdc182-621f-49b1-ae96-98c62e729157",
-      "id": "1d968a32-ab4d-4b14-969a-3523d1df9fad-3"
+      "revision": "fe4dd28d-40c6-4156-b30c-b8128e4c6e09",
+      "id": "1ace0bc5-d911-449b-8cfc-d9da428b8101-2"
     },
     "revisions": {
       "99a05bd8-ca72-49c9-98d0-411d70896506": [
@@ -1711,19 +1742,82 @@
           "inputScope": "local-project-files",
           "attribution": "recorded-revision"
         }
+      ],
+      "fe4dd28d-40c6-4156-b30c-b8128e4c6e09": [
+        {
+          "scope": "full",
+          "id": "1ace0bc5-d911-449b-8cfc-d9da428b8101-0",
+          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/4c2418be-edc5-4ab1-b12c-af23992959bc/frame-00-at-17s.png",
+          "time": 17,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794922387261,
+          "contentHash": "28dc031598e002e5a86f338af9a2426d20c77015e74dda3a3dc7e9dfc5d669c0",
+          "revision": "fe4dd28d-40c6-4156-b30c-b8128e4c6e09",
+          "inputFingerprint": "674b7979f23bc3eed4fb29b61cf9a19b77804882772f2f31a21e77d8b0987153",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "1ace0bc5-d911-449b-8cfc-d9da428b8101-1",
+          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/4c2418be-edc5-4ab1-b12c-af23992959bc/frame-01-at-30s.png",
+          "time": 30,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794922387262,
+          "contentHash": "a56240952c9c06ec0a5e66e4c40e4d5f94f12bc45c7af7570f1af6c18a00fb78",
+          "revision": "fe4dd28d-40c6-4156-b30c-b8128e4c6e09",
+          "inputFingerprint": "674b7979f23bc3eed4fb29b61cf9a19b77804882772f2f31a21e77d8b0987153",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "1ace0bc5-d911-449b-8cfc-d9da428b8101-2",
+          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/4c2418be-edc5-4ab1-b12c-af23992959bc/frame-02-at-59.85s.png",
+          "time": 59.85,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794922387262,
+          "contentHash": "1170e3827c9cf40c38cf9bbcfe5ad888cbbb4471934ee9a1c4dd1a7bec69342d",
+          "revision": "fe4dd28d-40c6-4156-b30c-b8128e4c6e09",
+          "inputFingerprint": "674b7979f23bc3eed4fb29b61cf9a19b77804882772f2f31a21e77d8b0987153",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
       ]
     },
     "unversioned": []
   },
   "renders": {
     "latest": {
-      "id": "cdf610a0-01a4-42fc-8476-80670644d912",
-      "completedAt": 1794922119902,
-      "output": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/renders/Nico-Explica-Palavra-Repetida-v2.mp4",
+      "id": "683cb061-5e63-4c95-8bd3-a228a26bb701",
+      "completedAt": 1794922516742,
+      "output": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/entrega/Nico-Explica-Palavra-Repetida-v3.mp4",
       "status": "completed",
-      "revision": "0ebdc182-621f-49b1-ae96-98c62e729157"
+      "revision": "fe4dd28d-40c6-4156-b30c-b8128e4c6e09"
     },
     "retainedRevisions": [
+      "fe4dd28d-40c6-4156-b30c-b8128e4c6e09",
       "0ebdc182-621f-49b1-ae96-98c62e729157"
     ]
   },

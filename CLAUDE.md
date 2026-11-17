@@ -11,3 +11,6 @@ Nunca gaste créditos em ferramentas de IA (geração de imagem, vídeo, voz, m�
 - Toda geração autorizada é registrada em `diretor-producao-ia/ferramentas/registro-creditos.md`.
 
 Espaço de trabalho de produção audiovisual: veja `diretor-producao-ia/README.md`.
+
+## Aprender algo novo
+Quando precisar de uma ferramenta, técnica ou assunto que não domina (ou errar a mesma coisa duas vezes), use a skill `ultra-aprendizado`. Antes, leia `Clayton cerebro/05-aprendizados/INDICE.md`; no fim, registre o que aprendeu ali.

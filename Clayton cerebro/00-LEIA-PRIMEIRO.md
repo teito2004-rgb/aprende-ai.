@@ -14,6 +14,7 @@ Porta de entrada. Aqui fica reunido, num lugar só, o que estava espalhado pelas
 | [02-SKILLS.md](02-SKILLS.md) | Catálogo das skills, para que serve cada uma e como chamar |
 | `02-skills/personalizadas/` | Cópia de cada skill sua (SKILL.md + arquivos de apoio) |
 | [03-comandos-e-prompts/](03-comandos-e-prompts/INDICE.md) | Comandos de barra (`/nico`, `/resumo`…), regras fixas e biblioteca de prompts |
+| [05-aprendizados/](05-aprendizados/INDICE.md) | O que o Claude aprendeu trabalhando (skill `ultra-aprendizado`) |
 | [04-conversas/CATALOGO.md](04-conversas/CATALOGO.md) | Conversas já varridas, com o que saiu de cada uma |
 | [06-programas-e-scripts/INDICE.md](06-programas-e-scripts/INDICE.md) | Scripts e programas conhecidos |
 | `09-varreduras/` | Relatórios das varreduras e estado do que já foi lido |

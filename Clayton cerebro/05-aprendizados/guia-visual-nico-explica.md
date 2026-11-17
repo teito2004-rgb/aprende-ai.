@@ -17,7 +17,7 @@ Meditar 1.680 · Bocejo 1.099 · Atenção 1.023 · Cômodo 880 · Memória fals
 - **Título** no alto à esquerda (y≈300), 2 linhas curtas, Inter 900, ~84 px, frase que muda a cada cena.
 - **Ilustração vetorial grande no centro** (y≈500–1020): contorno carvão grosso (8–10 px), preenchimento creme/branco, detalhes ciano #27CDE0, cantos arredondados, às vezes sombra deslocada.
 - **Nota pequena** sob a ilustração (fonte/estudo · "ilustração").
-- **Legenda**: pílula carvão com texto claro, 2–4 palavras, centro (y≈1150), sincronizada com a fala.
+- **Legenda**: pílula carvão com texto claro, 2–4 palavras, sincronizada com a fala. **Posição aprovada pelo Clayton: topo da pílula em y≈1375 no quadro 1080×1920** (15–20 px acima do episódio da Lua, que ficava em ≈1395). Medido nos prints do YouTube Shorts e do Instagram Reels, acima do nome do perfil.
 - **Elementos de app**: botão de like (círculo ciano com polegar + pílula "deixa um like"), enquete com opções, caixa de comentário.
 - **Ritmo**: cena nova a cada ~3–4 s; animação funcional (setas, barras enchendo, objetos entrando), nada decorativo.
 - **Fim**: logo "nico explica" + slogan "O cotidiano faz mais sentido." por **1–2 s no máximo** (arquivo no PC: `kit-v1\logo-sem-fundo.png`).

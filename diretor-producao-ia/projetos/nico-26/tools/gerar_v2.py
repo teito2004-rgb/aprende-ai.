@@ -256,7 +256,7 @@ window.__timelines["{c['id']}"] = tl;
 items = "\n".join(f'<div id="lg{k}" class="clip lg" data-start="{a}" data-duration="{round(b-a,2)}" data-track-index="1"><span>{html.escape(t)}</span></div>' for k, (t, a, b) in enumerate(LEG))
 open("compositions/legendas.html", "w").write(f"""<template>
 <style>#root{{position:absolute;inset:0;font-family:Inter,sans-serif}}
-.lg{{position:absolute;left:150px;right:190px;top:1150px;text-align:center}}
+.lg{{position:absolute;left:150px;right:190px;top:1375px;text-align:center}}
 .lg span{{display:inline-block;padding:12px 26px;border-radius:16px;background:{CA};color:{CR};font-size:46px;font-weight:700;line-height:1.15}}</style>
 <div id="root" data-composition-id="legendas" data-width="{W}" data-height="{H}" data-layout-allow-caption-zone>
 {items}

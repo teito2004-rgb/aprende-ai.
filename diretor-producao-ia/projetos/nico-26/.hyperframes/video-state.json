@@ -745,7 +745,6 @@
         {
           "id": "25da626c-3f8d-47fd-81ff-9d05dfba0e57",
           "scope": "project",
-          "report": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/checks/25da626c-3f8d-47fd-81ff-9d05dfba0e57.json",
           "metadata": {
             "ok": false,
             "browserSkipped": false,
@@ -775,14 +774,15 @@
           "revision": "e2656a37-179f-4b0d-a630-37129d12414b",
           "inputFingerprint": "b39288a26c1d06aabce1a2729b6b83859c332d25acdb6e986c597775ef308da5",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         }
       ],
       "3a7d4e0e-b01b-4273-969f-d0c50a8edd06": [
         {
           "id": "9eea7577-fa87-46c6-b6da-bd8afe770180",
           "scope": "project",
-          "report": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/checks/9eea7577-fa87-46c6-b6da-bd8afe770180.json",
           "metadata": {
             "ok": true,
             "browserSkipped": false,
@@ -812,14 +812,15 @@
           "revision": "3a7d4e0e-b01b-4273-969f-d0c50a8edd06",
           "inputFingerprint": "fb48059c70a5c161c85b82038142dac902fe7bc6c4b88d3c4e9e65ecdb6f4438",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         }
       ],
       "a357d96b-eff3-461e-8fff-f4ecaeb4079c": [
         {
           "id": "d84b9175-0fc2-4430-9926-602e8ed2b6d1",
           "scope": "project",
-          "report": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/checks/d84b9175-0fc2-4430-9926-602e8ed2b6d1.json",
           "metadata": {
             "ok": false,
             "browserSkipped": false,
@@ -849,14 +850,15 @@
           "revision": "a357d96b-eff3-461e-8fff-f4ecaeb4079c",
           "inputFingerprint": "5ea66ebc77e184639a335ec75f67ba6ce01e20d3b6d0dab3e932d91896bfd39d",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         }
       ],
       "99a05bd8-ca72-49c9-98d0-411d70896506": [
         {
           "id": "142017b5-ce5f-4d40-93fd-6ea289216d29",
           "scope": "project",
-          "report": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/checks/142017b5-ce5f-4d40-93fd-6ea289216d29.json",
           "metadata": {
             "ok": true,
             "browserSkipped": false,
@@ -886,14 +888,15 @@
           "revision": "99a05bd8-ca72-49c9-98d0-411d70896506",
           "inputFingerprint": "a11aa37406f96f3ea38ddfa3e4a149cefb663038d1c3ac57e66e7e7a430fc771",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         }
       ],
       "516014fc-fd97-46f7-acec-f6ca09e3efe8": [
         {
           "id": "ed43cd7e-9044-40bb-85cd-6cd4ee77af93",
           "scope": "project",
-          "report": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/checks/ed43cd7e-9044-40bb-85cd-6cd4ee77af93.json",
           "metadata": {
             "ok": true,
             "browserSkipped": false,
@@ -923,14 +926,15 @@
           "revision": "516014fc-fd97-46f7-acec-f6ca09e3efe8",
           "inputFingerprint": "95bbb58cc1dfae17f69be3e82d11b6dabc2c42e89e90a1ed252d78e77d5b3cc3",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         }
       ],
       "5d415ca6-4a36-40f6-b10d-444846dcfd6f": [
         {
           "id": "56259764-0f50-4473-9a85-32238ecc66c3",
           "scope": "project",
-          "report": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/checks/56259764-0f50-4473-9a85-32238ecc66c3.json",
           "metadata": {
             "ok": true,
             "browserSkipped": false,
@@ -960,7 +964,9 @@
           "revision": "5d415ca6-4a36-40f6-b10d-444846dcfd6f",
           "inputFingerprint": "b7292b202ec63e13ae7d2899b212d8f2f5951ef0e368572dd5616595ddd6210a",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         }
       ],
       "0ebdc182-621f-49b1-ae96-98c62e729157": [
@@ -1013,7 +1019,6 @@
         {
           "scope": "full",
           "id": "a17d5267-a032-4012-bc2c-f1f5de8d8907-0",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/0ad93a4b-3512-44c4-be6a-e10ea85f3632/frame-00-at-1.5s.png",
           "time": 1.5,
           "metadata": {
             "width": 1080,
@@ -1028,12 +1033,13 @@
           "revision": "99a05bd8-ca72-49c9-98d0-411d70896506",
           "inputFingerprint": "a11aa37406f96f3ea38ddfa3e4a149cefb663038d1c3ac57e66e7e7a430fc771",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "a17d5267-a032-4012-bc2c-f1f5de8d8907-1",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/0ad93a4b-3512-44c4-be6a-e10ea85f3632/frame-01-at-6s.png",
           "time": 6,
           "metadata": {
             "width": 1080,
@@ -1048,12 +1054,13 @@
           "revision": "99a05bd8-ca72-49c9-98d0-411d70896506",
           "inputFingerprint": "a11aa37406f96f3ea38ddfa3e4a149cefb663038d1c3ac57e66e7e7a430fc771",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "a17d5267-a032-4012-bc2c-f1f5de8d8907-2",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/0ad93a4b-3512-44c4-be6a-e10ea85f3632/frame-02-at-12s.png",
           "time": 12,
           "metadata": {
             "width": 1080,
@@ -1068,12 +1075,13 @@
           "revision": "99a05bd8-ca72-49c9-98d0-411d70896506",
           "inputFingerprint": "a11aa37406f96f3ea38ddfa3e4a149cefb663038d1c3ac57e66e7e7a430fc771",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "a17d5267-a032-4012-bc2c-f1f5de8d8907-3",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/0ad93a4b-3512-44c4-be6a-e10ea85f3632/frame-03-at-17s.png",
           "time": 17,
           "metadata": {
             "width": 1080,
@@ -1088,12 +1096,13 @@
           "revision": "99a05bd8-ca72-49c9-98d0-411d70896506",
           "inputFingerprint": "a11aa37406f96f3ea38ddfa3e4a149cefb663038d1c3ac57e66e7e7a430fc771",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "a17d5267-a032-4012-bc2c-f1f5de8d8907-4",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/0ad93a4b-3512-44c4-be6a-e10ea85f3632/frame-04-at-22s.png",
           "time": 22,
           "metadata": {
             "width": 1080,
@@ -1108,12 +1117,13 @@
           "revision": "99a05bd8-ca72-49c9-98d0-411d70896506",
           "inputFingerprint": "a11aa37406f96f3ea38ddfa3e4a149cefb663038d1c3ac57e66e7e7a430fc771",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "a17d5267-a032-4012-bc2c-f1f5de8d8907-5",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/0ad93a4b-3512-44c4-be6a-e10ea85f3632/frame-05-at-30s.png",
           "time": 30,
           "metadata": {
             "width": 1080,
@@ -1128,12 +1138,13 @@
           "revision": "99a05bd8-ca72-49c9-98d0-411d70896506",
           "inputFingerprint": "a11aa37406f96f3ea38ddfa3e4a149cefb663038d1c3ac57e66e7e7a430fc771",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "a17d5267-a032-4012-bc2c-f1f5de8d8907-6",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/0ad93a4b-3512-44c4-be6a-e10ea85f3632/frame-06-at-40s.png",
           "time": 40,
           "metadata": {
             "width": 1080,
@@ -1148,12 +1159,13 @@
           "revision": "99a05bd8-ca72-49c9-98d0-411d70896506",
           "inputFingerprint": "a11aa37406f96f3ea38ddfa3e4a149cefb663038d1c3ac57e66e7e7a430fc771",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "a17d5267-a032-4012-bc2c-f1f5de8d8907-7",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/0ad93a4b-3512-44c4-be6a-e10ea85f3632/frame-07-at-47s.png",
           "time": 47,
           "metadata": {
             "width": 1080,
@@ -1168,12 +1180,13 @@
           "revision": "99a05bd8-ca72-49c9-98d0-411d70896506",
           "inputFingerprint": "a11aa37406f96f3ea38ddfa3e4a149cefb663038d1c3ac57e66e7e7a430fc771",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "a17d5267-a032-4012-bc2c-f1f5de8d8907-8",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/0ad93a4b-3512-44c4-be6a-e10ea85f3632/frame-08-at-57s.png",
           "time": 57,
           "metadata": {
             "width": 1080,
@@ -1188,12 +1201,13 @@
           "revision": "99a05bd8-ca72-49c9-98d0-411d70896506",
           "inputFingerprint": "a11aa37406f96f3ea38ddfa3e4a149cefb663038d1c3ac57e66e7e7a430fc771",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "a17d5267-a032-4012-bc2c-f1f5de8d8907-9",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/0ad93a4b-3512-44c4-be6a-e10ea85f3632/frame-09-at-59.83s.png",
           "time": 59.83,
           "metadata": {
             "width": 1080,
@@ -1208,14 +1222,15 @@
           "revision": "99a05bd8-ca72-49c9-98d0-411d70896506",
           "inputFingerprint": "a11aa37406f96f3ea38ddfa3e4a149cefb663038d1c3ac57e66e7e7a430fc771",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         }
       ],
       "9ecc266e-f0b2-42f7-b48b-51c6669fda49": [
         {
           "scope": "full",
           "id": "4b7b91bd-c8ec-486a-8078-60af37676cac-0",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/f125a925-84ff-4922-88e4-eb4a93c9b696/frame-00-at-17s.png",
           "time": 17,
           "metadata": {
             "width": 1080,
@@ -1230,12 +1245,13 @@
           "revision": "9ecc266e-f0b2-42f7-b48b-51c6669fda49",
           "inputFingerprint": "a77d912272b61b4a5aea0c20f6c0cfd788d016ce16bf07db0a98b82d52a29399",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "4b7b91bd-c8ec-486a-8078-60af37676cac-1",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/f125a925-84ff-4922-88e4-eb4a93c9b696/frame-01-at-40s.png",
           "time": 40,
           "metadata": {
             "width": 1080,
@@ -1250,12 +1266,13 @@
           "revision": "9ecc266e-f0b2-42f7-b48b-51c6669fda49",
           "inputFingerprint": "a77d912272b61b4a5aea0c20f6c0cfd788d016ce16bf07db0a98b82d52a29399",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "4b7b91bd-c8ec-486a-8078-60af37676cac-2",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/f125a925-84ff-4922-88e4-eb4a93c9b696/frame-02-at-59.83s.png",
           "time": 59.83,
           "metadata": {
             "width": 1080,
@@ -1270,14 +1287,15 @@
           "revision": "9ecc266e-f0b2-42f7-b48b-51c6669fda49",
           "inputFingerprint": "a77d912272b61b4a5aea0c20f6c0cfd788d016ce16bf07db0a98b82d52a29399",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         }
       ],
       "5d415ca6-4a36-40f6-b10d-444846dcfd6f": [
         {
           "scope": "full",
           "id": "8ee31434-ff74-495c-8605-76f003a978c0-0",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/50f9b678-9c54-41b2-8892-0cc202293d72/frame-00-at-1s.png",
           "time": 1,
           "metadata": {
             "width": 1080,
@@ -1292,12 +1310,13 @@
           "revision": "5d415ca6-4a36-40f6-b10d-444846dcfd6f",
           "inputFingerprint": "b7292b202ec63e13ae7d2899b212d8f2f5951ef0e368572dd5616595ddd6210a",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "8ee31434-ff74-495c-8605-76f003a978c0-1",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/50f9b678-9c54-41b2-8892-0cc202293d72/frame-01-at-5s.png",
           "time": 5,
           "metadata": {
             "width": 1080,
@@ -1312,12 +1331,13 @@
           "revision": "5d415ca6-4a36-40f6-b10d-444846dcfd6f",
           "inputFingerprint": "b7292b202ec63e13ae7d2899b212d8f2f5951ef0e368572dd5616595ddd6210a",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "8ee31434-ff74-495c-8605-76f003a978c0-2",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/50f9b678-9c54-41b2-8892-0cc202293d72/frame-02-at-9s.png",
           "time": 9,
           "metadata": {
             "width": 1080,
@@ -1332,12 +1352,13 @@
           "revision": "5d415ca6-4a36-40f6-b10d-444846dcfd6f",
           "inputFingerprint": "b7292b202ec63e13ae7d2899b212d8f2f5951ef0e368572dd5616595ddd6210a",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "8ee31434-ff74-495c-8605-76f003a978c0-3",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/50f9b678-9c54-41b2-8892-0cc202293d72/frame-03-at-14s.png",
           "time": 14,
           "metadata": {
             "width": 1080,
@@ -1352,12 +1373,13 @@
           "revision": "5d415ca6-4a36-40f6-b10d-444846dcfd6f",
           "inputFingerprint": "b7292b202ec63e13ae7d2899b212d8f2f5951ef0e368572dd5616595ddd6210a",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "8ee31434-ff74-495c-8605-76f003a978c0-4",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/50f9b678-9c54-41b2-8892-0cc202293d72/frame-04-at-17s.png",
           "time": 17,
           "metadata": {
             "width": 1080,
@@ -1372,12 +1394,13 @@
           "revision": "5d415ca6-4a36-40f6-b10d-444846dcfd6f",
           "inputFingerprint": "b7292b202ec63e13ae7d2899b212d8f2f5951ef0e368572dd5616595ddd6210a",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "8ee31434-ff74-495c-8605-76f003a978c0-5",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/50f9b678-9c54-41b2-8892-0cc202293d72/frame-05-at-22s.png",
           "time": 22,
           "metadata": {
             "width": 1080,
@@ -1392,12 +1415,13 @@
           "revision": "5d415ca6-4a36-40f6-b10d-444846dcfd6f",
           "inputFingerprint": "b7292b202ec63e13ae7d2899b212d8f2f5951ef0e368572dd5616595ddd6210a",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "8ee31434-ff74-495c-8605-76f003a978c0-6",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/50f9b678-9c54-41b2-8892-0cc202293d72/frame-06-at-25s.png",
           "time": 25,
           "metadata": {
             "width": 1080,
@@ -1412,12 +1436,13 @@
           "revision": "5d415ca6-4a36-40f6-b10d-444846dcfd6f",
           "inputFingerprint": "b7292b202ec63e13ae7d2899b212d8f2f5951ef0e368572dd5616595ddd6210a",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "8ee31434-ff74-495c-8605-76f003a978c0-7",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/50f9b678-9c54-41b2-8892-0cc202293d72/frame-07-at-30s.png",
           "time": 30,
           "metadata": {
             "width": 1080,
@@ -1432,12 +1457,13 @@
           "revision": "5d415ca6-4a36-40f6-b10d-444846dcfd6f",
           "inputFingerprint": "b7292b202ec63e13ae7d2899b212d8f2f5951ef0e368572dd5616595ddd6210a",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "8ee31434-ff74-495c-8605-76f003a978c0-8",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/50f9b678-9c54-41b2-8892-0cc202293d72/frame-08-at-34.5s.png",
           "time": 34.5,
           "metadata": {
             "width": 1080,
@@ -1452,12 +1478,13 @@
           "revision": "5d415ca6-4a36-40f6-b10d-444846dcfd6f",
           "inputFingerprint": "b7292b202ec63e13ae7d2899b212d8f2f5951ef0e368572dd5616595ddd6210a",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "8ee31434-ff74-495c-8605-76f003a978c0-9",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/50f9b678-9c54-41b2-8892-0cc202293d72/frame-09-at-38s.png",
           "time": 38,
           "metadata": {
             "width": 1080,
@@ -1472,12 +1499,13 @@
           "revision": "5d415ca6-4a36-40f6-b10d-444846dcfd6f",
           "inputFingerprint": "b7292b202ec63e13ae7d2899b212d8f2f5951ef0e368572dd5616595ddd6210a",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "8ee31434-ff74-495c-8605-76f003a978c0-10",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/50f9b678-9c54-41b2-8892-0cc202293d72/frame-10-at-43s.png",
           "time": 43,
           "metadata": {
             "width": 1080,
@@ -1492,12 +1520,13 @@
           "revision": "5d415ca6-4a36-40f6-b10d-444846dcfd6f",
           "inputFingerprint": "b7292b202ec63e13ae7d2899b212d8f2f5951ef0e368572dd5616595ddd6210a",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "8ee31434-ff74-495c-8605-76f003a978c0-11",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/50f9b678-9c54-41b2-8892-0cc202293d72/frame-11-at-47s.png",
           "time": 47,
           "metadata": {
             "width": 1080,
@@ -1512,12 +1541,13 @@
           "revision": "5d415ca6-4a36-40f6-b10d-444846dcfd6f",
           "inputFingerprint": "b7292b202ec63e13ae7d2899b212d8f2f5951ef0e368572dd5616595ddd6210a",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "8ee31434-ff74-495c-8605-76f003a978c0-12",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/50f9b678-9c54-41b2-8892-0cc202293d72/frame-12-at-49s.png",
           "time": 49,
           "metadata": {
             "width": 1080,
@@ -1532,12 +1562,13 @@
           "revision": "5d415ca6-4a36-40f6-b10d-444846dcfd6f",
           "inputFingerprint": "b7292b202ec63e13ae7d2899b212d8f2f5951ef0e368572dd5616595ddd6210a",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "8ee31434-ff74-495c-8605-76f003a978c0-13",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/50f9b678-9c54-41b2-8892-0cc202293d72/frame-13-at-53s.png",
           "time": 53,
           "metadata": {
             "width": 1080,
@@ -1552,12 +1583,13 @@
           "revision": "5d415ca6-4a36-40f6-b10d-444846dcfd6f",
           "inputFingerprint": "b7292b202ec63e13ae7d2899b212d8f2f5951ef0e368572dd5616595ddd6210a",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "8ee31434-ff74-495c-8605-76f003a978c0-14",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/50f9b678-9c54-41b2-8892-0cc202293d72/frame-14-at-58s.png",
           "time": 58,
           "metadata": {
             "width": 1080,
@@ -1572,12 +1604,13 @@
           "revision": "5d415ca6-4a36-40f6-b10d-444846dcfd6f",
           "inputFingerprint": "b7292b202ec63e13ae7d2899b212d8f2f5951ef0e368572dd5616595ddd6210a",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         },
         {
           "scope": "full",
           "id": "8ee31434-ff74-495c-8605-76f003a978c0-15",
-          "image": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/.hyperframes/artifacts/snapshots/50f9b678-9c54-41b2-8892-0cc202293d72/frame-15-at-59.85s.png",
           "time": 59.85,
           "metadata": {
             "width": 1080,
@@ -1592,7 +1625,9 @@
           "revision": "5d415ca6-4a36-40f6-b10d-444846dcfd6f",
           "inputFingerprint": "b7292b202ec63e13ae7d2899b212d8f2f5951ef0e368572dd5616595ddd6210a",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "cdf610a0-01a4-42fc-8476-80670644d912"
         }
       ],
       "0ebdc182-621f-49b1-ae96-98c62e729157": [
@@ -1682,13 +1717,15 @@
   },
   "renders": {
     "latest": {
-      "id": "26c27362-db33-49ad-9cf1-1f422406464c",
-      "completedAt": 1794920798022,
-      "output": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/renders/Nico-Explica-Palavra-Repetida.mp4",
+      "id": "cdf610a0-01a4-42fc-8476-80670644d912",
+      "completedAt": 1794922119902,
+      "output": "/home/user/aprende-ai./diretor-producao-ia/projetos/nico-26/renders/Nico-Explica-Palavra-Repetida-v2.mp4",
       "status": "completed",
-      "revision": null
+      "revision": "0ebdc182-621f-49b1-ae96-98c62e729157"
     },
-    "retainedRevisions": []
+    "retainedRevisions": [
+      "0ebdc182-621f-49b1-ae96-98c62e729157"
+    ]
   },
   "pendingArtifactCleanup": []
 }

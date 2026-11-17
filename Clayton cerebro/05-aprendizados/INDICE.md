@@ -8,3 +8,4 @@ Ler este índice no começo de qualquer tarefa com ferramenta, técnica ou assun
 |---|---|---|---|
 | 2026-11-17 | Produzir o Nico Explica na nuvem (HyperFrames, voz, som) | confirmado, download pendente | [producao-nico-na-nuvem.md](producao-nico-na-nuvem.md) |
 | 2026-11-17 | Guia visual do Nico Explica (padrão dos que performam) | confirmado | [guia-visual-nico-explica.md](guia-visual-nico-explica.md) |
+| 2026-11-17 | Publicar e medir (Metricool + vidIQ, melhores horários) | confirmado | [publicacao-e-metricas.md](publicacao-e-metricas.md) |

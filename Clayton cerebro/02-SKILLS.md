@@ -15,6 +15,7 @@ Cópias em `02-skills/personalizadas/<nome>/`. No Claude.ai elas aparecem como `
 | [som-por-codigo](02-skills/personalizadas/som-por-codigo/SKILL.md) | Trilha, efeitos e mixagem por Python com ducking e LUFS | "faz o som…" | 8016e3f2db50* |
 | [melhorar-prompt](02-skills/personalizadas/melhorar-prompt/SKILL.md) | Criar/revisar prompts para o Claude | "melhora esse prompt" | 19c368a11552 |
 | [resumo](02-skills/personalizadas/resumo/SKILL.md) | Resumo de conversa antes do /clear, retomar e buscar (compartilhado com ChatGPT) | `/resumo`, `/resumo retomar`, `/resumo buscar` | 1852d04f97f7* |
+| [ultra-aprendizado](02-skills/personalizadas/ultra-aprendizado/SKILL.md) | Plano para aprender qualquer habilidade rápido (9 princípios do livro *Ultra-aprendizado*). **Nova, ainda não está no Claude.ai:** suba o `02-skills/ultra-aprendizado.zip` em Configurações → Skills. No Claude Code com este repo já funciona. | "quero aprender X" | nova |
 | [varrer-cerebro](02-skills/personalizadas/varrer-cerebro/SKILL.md) | Varredura que atualiza este cérebro | "atualiza o cérebro" | b5cbb84e8076* |
 
 \* Cópia com dados pessoais trocados por marcadores; o hash é do original completo.

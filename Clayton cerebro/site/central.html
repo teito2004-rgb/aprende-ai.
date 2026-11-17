@@ -1,0 +1,332 @@
+<title>Central da Produtora</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sala de direção — barra fixa com captura e busca, abas por gaveta, conteúdo em grade que vira coluna no celular */
+:root{
+  --bg:#f2f4f6; --surface:#ffffff; --sunk:#e7ebef; --line:#d3dae1;
+  --ink:#16212c; --muted:#5b6876; --accent:#d9480f; --accent-ink:#ffffff; --accent-soft:#fde8dc;
+  --cobalt:#2547c9; --ok:#1e7b4f; --warn:#a66300;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f151b; --surface:#17202a; --sunk:#111920; --line:#2a3743;
+  --ink:#e6ecf1; --muted:#97a5b3; --accent:#ff7a3d; --accent-ink:#1a0d05; --accent-soft:#3a2216;
+  --cobalt:#8ea6ff; --ok:#5cc996; --warn:#e3a64a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f151b; --surface:#17202a; --sunk:#111920; --line:#2a3743;
+  --ink:#e6ecf1; --muted:#97a5b3; --accent:#ff7a3d; --accent-ink:#1a0d05; --accent-soft:#3a2216;
+  --cobalt:#8ea6ff; --ok:#5cc996; --warn:#e3a64a; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 var(--f-body);margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.top{display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding-block:12px}
+.brand{font:800 22px/1 var(--f-display);letter-spacing:-.02em;display:flex;align-items:center;gap:10px;white-space:nowrap}
+.slate{width:26px;height:20px;border-radius:3px;background:repeating-linear-gradient(135deg,var(--ink) 0 5px,var(--surface) 5px 10px);border:2px solid var(--ink)}
+.search{flex:1;min-width:180px}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:9px 11px;width:100%}
+textarea{resize:vertical}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px}
+nav.tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav.tabs a{padding:10px 14px;color:var(--muted);text-decoration:none;font-weight:600;border-bottom:3px solid transparent;white-space:nowrap}
+nav.tabs a[aria-current="page"]{color:var(--ink);border-color:var(--accent)}
+nav.tabs .n{font:500 12px var(--f-mono);color:var(--muted);margin-left:4px}
+main{padding-block:24px 64px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0}
+h1{font-size:30px;font-weight:800;letter-spacing:-.02em}
+h2{font-size:20px;font-weight:600}
+h3{font-size:16px;font-weight:600}
+.eyebrow{font:500 11px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+button{font:600 14px var(--f-body);border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 13px;cursor:pointer}
+button:hover{border-color:var(--ink)}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+button.ghost{border-color:transparent;background:transparent;color:var(--muted);padding:6px 9px}
+button.ghost:hover{color:var(--ink);border-color:var(--line)}
+button.danger{color:#c92a2a;border-color:#c92a2a55}
+button:disabled{opacity:.5;cursor:default}
+.muted{color:var(--muted)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.stack{display:flex;flex-direction:column;gap:12px}
+.capture{background:var(--surface);border:2px solid var(--ink);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:10px}
+.capture form{display:flex;gap:10px;flex-wrap:wrap}
+.capture input{flex:1;min-width:200px;font-size:17px;padding:12px 14px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;min-width:0}
+.stat b{display:block;font:800 28px/1.1 var(--f-display);font-variant-numeric:tabular-nums}
+.stat.alert b{color:var(--accent)}
+.grid2{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:20px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;min-width:0}
+.list{display:flex;flex-direction:column}
+.li{display:flex;gap:10px;align-items:flex-start;padding:11px 0;border-top:1px solid var(--line);min-width:0}
+.li:first-child{border-top:0}
+.li .t{flex:1;min-width:0;cursor:pointer}
+.li .t:hover b{text-decoration:underline}
+.li .acts{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+.pill{display:inline-flex;align-items:center;gap:5px;font:500 11.5px var(--f-mono);padding:2px 8px;border-radius:999px;background:var(--sunk);color:var(--muted);white-space:nowrap}
+.pill.s-entrada{background:var(--accent-soft);color:var(--accent)}
+.pill.s-semente{background:var(--sunk);color:var(--muted)}
+.pill.s-avaliar{background:color-mix(in srgb,var(--warn) 18%,transparent);color:var(--warn)}
+.pill.s-aprovada,.pill.s-ativo{background:color-mix(in srgb,var(--cobalt) 16%,transparent);color:var(--cobalt)}
+.pill.s-em-producao{background:var(--accent-soft);color:var(--accent)}
+.pill.s-feita,.pill.s-entregue{background:color-mix(in srgb,var(--ok) 16%,transparent);color:var(--ok)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border-radius:999px;padding:6px 12px;font-weight:500}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;min-width:0;cursor:pointer;text-align:left;padding:0;font-weight:400}
+.card:hover{border-color:var(--ink)}
+.card .img{aspect-ratio:16/9;background:var(--sunk);background-size:cover;background-position:center;max-width:100%}
+.card .body{padding:13px 14px;display:flex;flex-direction:column;gap:7px;min-width:0}
+.card .snip{font:12.5px/1.5 var(--f-mono);color:var(--muted);background:var(--sunk);border-radius:6px;padding:8px 9px;max-height:4.8em;overflow:hidden;white-space:pre-wrap;word-break:break-word}
+.card .foot{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:auto;padding:0 14px 13px}
+.board{display:grid;grid-template-columns:repeat(5,minmax(200px,1fr));gap:12px;overflow-x:auto;padding-bottom:8px}
+.col{background:var(--sunk);border-radius:var(--r);padding:10px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.col h3{display:flex;justify-content:space-between;font-size:14px;padding:2px 4px}
+.mini{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:9px 10px;cursor:pointer;text-align:left;font-weight:400;display:flex;flex-direction:column;gap:5px}
+.mini:hover{border-color:var(--ink)}
+.empty{border:1.5px dashed var(--line);border-radius:var(--r);padding:22px;text-align:center;color:var(--muted)}
+.method{max-width:760px;display:flex;flex-direction:column;gap:22px}
+.method p,.method li{max-width:68ch}
+.drawers{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.drawer{border:2px solid var(--ink);border-radius:8px;padding:10px;background:var(--surface);min-width:0}
+.drawer b{font-family:var(--f-display);display:block}
+.drawer small{color:var(--muted);display:block;line-height:1.4;margin-top:4px}
+.flow{font:500 13px var(--f-mono);display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+table{border-collapse:collapse;width:100%;font-size:14px}
+.tbl{overflow-x:auto}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:500 11px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+dialog{border:0;border-radius:14px;padding:0;width:min(760px,calc(100vw - 24px));max-height:calc(100dvh - 24px);background:var(--surface);color:var(--ink);box-shadow:0 20px 60px #0005}
+dialog::backdrop{background:#0b1117aa}
+.dlg{display:flex;flex-direction:column;max-height:calc(100dvh - 24px)}
+.dlg-h{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.dlg-b{padding:16px 18px;overflow:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.dlg-b .full{grid-column:1/-1}
+.dlg-f{display:flex;gap:8px;flex-wrap:wrap;justify-content:space-between;padding:12px 18px;border-top:1px solid var(--line)}
+label{display:flex;flex-direction:column;gap:5px;font-size:13px;font-weight:600;color:var(--muted)}
+textarea.mono{font:13px/1.55 var(--f-mono)}
+.thumbs{display:flex;gap:8px;flex-wrap:wrap}
+.thumb{position:relative;width:110px;aspect-ratio:1;border-radius:8px;overflow:hidden;background:var(--sunk);border:1px solid var(--line)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb button{position:absolute;top:4px;right:4px;padding:2px 7px;font-size:12px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:8px;font-weight:600;z-index:20}
+.banner{background:var(--accent-soft);color:var(--ink);border-radius:var(--r);padding:12px 14px}
+@media (max-width:860px){.grid2{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.drawers{grid-template-columns:repeat(2,minmax(0,1fr))}.dlg-b{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<header>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand"><span class="slate" aria-hidden="true"></span>Central</div>
+      <input class="search" id="q" type="search" placeholder="Buscar em tudo: prompt de personagem, Nico, som…" aria-label="Buscar">
+      <button class="primary" id="btnNovo">+ Novo</button>
+    </div>
+    <nav class="tabs" aria-label="Seções">
+      <a href="#painel" data-v="painel">Painel</a>
+      <a href="#ideias" data-v="ideias">Ideias<span class="n" id="n-ideias"></span></a>
+      <a href="#projetos" data-v="projetos">Projetos<span class="n" id="n-projetos"></span></a>
+      <a href="#biblioteca" data-v="biblioteca">Biblioteca<span class="n" id="n-biblioteca"></span></a>
+      <a href="#metodo" data-v="metodo">Método</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="main"></main>
+
+<dialog id="dlg" aria-labelledby="dlgTitle">
+  <form class="dlg" id="frm" method="dialog">
+    <div class="dlg-h"><h2 id="dlgTitle">Novo item</h2><button type="button" class="ghost" id="btnFechar">Fechar</button></div>
+    <div class="dlg-b">
+      <label class="full">Título<input id="f-titulo" required placeholder="Ex.: Personagem com voz fixa — Seedance"></label>
+      <label>Tipo<select id="f-tipo"></select></label>
+      <label>Área<select id="f-area"></select></label>
+      <label>Status<select id="f-status"></select></label>
+      <label>Categoria<input id="f-categoria" list="cats" placeholder="personagem, roteiro, voz…"></label>
+      <label class="full">Para que serve / descrição<textarea id="f-resumo" rows="2"></textarea></label>
+      <label class="full" id="w-conteudo"><span id="l-conteudo">Prompt</span><textarea id="f-conteudo" class="mono" rows="9" spellcheck="false"></textarea></label>
+      <label class="full" id="w-uso">Como usar<textarea id="f-uso" rows="2" placeholder="Onde colar, que ferramenta, o que trocar nos colchetes"></textarea></label>
+      <label id="w-prazo">Prazo<input id="f-prazo" type="date"></label>
+      <label id="w-proximo">Próximo passo<input id="f-proximo"></label>
+      <div class="full stack" id="w-imgs">
+        <span class="eyebrow">Imagens de referência</span>
+        <div class="thumbs" id="thumbs"></div>
+        <div class="row"><label style="flex-direction:row;align-items:center;gap:8px;font-weight:500"><input type="file" id="f-img" accept="image/*" multiple style="width:auto"></label><span class="muted" id="imgMsg"></span></div>
+      </div>
+      <label class="full">Origem<input id="f-origem" placeholder="De onde veio: conversa, skill, arquivo…"></label>
+    </div>
+    <div class="dlg-f">
+      <div class="row"><button type="button" class="danger" id="btnExcluir">Excluir</button><button type="button" id="btnArquivar">Arquivar</button></div>
+      <div class="row"><button type="button" id="btnCopiar">Copiar texto</button><button type="submit" class="primary" id="btnSalvar">Salvar</button></div>
+    </div>
+  </form>
+</dialog>
+<datalist id="cats"></datalist>
+
+<script>
+const TIPOS={ideia:"Ideia",projeto:"Projeto",prompt:"Prompt",skill:"Skill",agente:"Agente",comando:"Comando",referencia:"Referência"};
+const BIB=["prompt","skill","agente","comando","referencia"];
+const AREAS=["Nico Explica","Clientes","Produtora","Pessoal"];
+const ST={ideia:["entrada","semente","avaliar","aprovada","em produção","feita","arquivada"],projeto:["ativo","pausado","entregue","arquivada"],_:["ativo","rascunho","arquivada"]};
+const STL={"entrada":"caixa de entrada"};
+const CATS=["personagem","roteiro","cena","edição de vídeo","imagem","voz","som","pesquisa","design","dados","organização","episódio"];
+const $=s=>document.querySelector(s), esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const slug=s=>s.normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/\s+/g,"-");
+let items=[],state="loading",db=null,assets=null,canWrite=false,view="painel",bibTipo="prompt",bibCat="",showArch=false,editing=null,editImgs=[];
+$("#cats").innerHTML=CATS.map(c=>`<option value="${c}">`).join("");
+
+function toast(m){const t=document.createElement("div");t.className="toast";t.textContent=m;document.body.append(t);setTimeout(()=>t.remove(),2200)}
+async function copy(text){try{await navigator.clipboard.writeText(text);toast("Copiado")}catch{toast("Não deu para copiar: selecione o texto e copie")}}
+const pill=s=>`<span class="pill s-${slug(s||"")}">${esc(STL[s]||s)}</span>`;
+const imgUrl=id=>"/_blob/"+encodeURIComponent(id);
+function q(){return $("#q").value.trim().toLowerCase()}
+function match(i){const s=q();if(!s)return true;return [i.titulo,i.resumo,i.conteudo,i.categoria,i.area,i.uso,TIPOS[i.tipo]].join(" ").toLowerCase().includes(s)}
+const by=(a,b)=>(b.atualizadoEm||"").localeCompare(a.atualizadoEm||"");
+function nextMonday(){const d=new Date();const add=(8-d.getDay())%7||7;d.setDate(d.getDate()+add);return d.toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"2-digit"})}
+
+function render(){
+  const ideias=items.filter(i=>i.tipo==="ideia"&&i.status!=="arquivada"),proj=items.filter(i=>i.tipo==="projeto"&&i.status!=="arquivada"),bib=items.filter(i=>BIB.includes(i.tipo)&&i.status!=="arquivada");
+  $("#n-ideias").textContent=ideias.length||"";$("#n-projetos").textContent=proj.filter(p=>p.status==="ativo").length||"";$("#n-biblioteca").textContent=bib.length||"";
+  document.querySelectorAll("nav.tabs a").forEach(a=>a.setAttribute("aria-current",a.dataset.v===view?"page":"false"));
+  $("#btnNovo").hidden=!canWrite;
+  const m=$("#main");
+  if(view==="metodo"){m.innerHTML=METODO;return}
+  if(state!=="ready"){m.innerHTML=state==="loading"?`<div class="empty">Abrindo a Central…</div>`:state==="noaccess"?`<div class="banner">Esta Central é particular. Entre com a conta do Clayton no Claude para ver e editar.</div>`:`<div class="banner">A Central não respondeu agora. Recarregue a página daqui a pouco.</div>`;return}
+  if(view==="painel")return renderPainel(m,ideias,proj,bib);
+  if(view==="ideias")return renderIdeias(m);
+  if(view==="projetos")return renderProjetos(m);
+  renderBib(m);
+}
+
+function renderPainel(m,ideias,proj,bib){
+  const entrada=ideias.filter(i=>i.status==="entrada").filter(match).sort(by),ativos=proj.filter(p=>p.status==="ativo"),prompts=bib.filter(b=>b.tipo==="prompt").length;
+  m.innerHTML=`<div class="stack" style="gap:20px">
+  ${canWrite?`<section class="capture" aria-labelledby="capT"><span class="eyebrow" id="capT">Capturar — 10 segundos, sem organizar</span>
+    <form id="capForm"><input id="capIn" placeholder="O que passou pela cabeça?" autocomplete="off" aria-label="Nova ideia"><select id="capArea" style="width:auto" aria-label="Área">${AREAS.map(a=>`<option>${a}</option>`).join("")}</select><button class="primary">Jogar na caixa</button></form></section>`:""}
+  <div class="stats">
+    <div class="stat ${entrada.length>9?"alert":""}"><span class="eyebrow">Caixa de entrada</span><b>${entrada.length}</b><span class="muted">${entrada.length?"para a triagem":"vazia"}</span></div>
+    <div class="stat ${ativos.length>3?"alert":""}"><span class="eyebrow">Projetos ativos</span><b>${ativos.length}/3</b><span class="muted">${ativos.length>3?"acima do limite":"limite: 3"}</span></div>
+    <div class="stat"><span class="eyebrow">Ideias guardadas</span><b>${ideias.length-entrada.length}</b><span class="muted">${ideias.filter(i=>i.status==="aprovada").length} aprovadas</span></div>
+    <div class="stat"><span class="eyebrow">Biblioteca</span><b>${bib.length}</b><span class="muted">${prompts} prompts</span></div>
+  </div>
+  <div class="grid2">
+    <section class="panel"><div class="row" style="justify-content:space-between;margin-bottom:6px"><h2>Caixa de entrada</h2><span class="muted">Triagem: ${nextMonday()}</span></div>
+      ${entrada.length?`<div class="list">${entrada.map(i=>`<div class="li"><div class="t" data-open="${i.id}"><b>${esc(i.titulo)}</b><div class="muted" style="font-size:13px">${esc(i.area||"")}${i.resumo?" · "+esc(i.resumo):""}</div></div>${canWrite?`<div class="acts"><button class="ghost" data-mv="${i.id}" data-to="semente" title="Guardar como ideia">Guardar</button><button class="ghost" data-mv="${i.id}" data-to="projeto" title="Virar projeto">Projeto</button><button class="ghost" data-mv="${i.id}" data-to="arquivada">Arquivar</button></div>`:""}</div>`).join("")}</div>`:`<div class="empty">Caixa vazia. Tudo que você jogar aqui espera a triagem de segunda.</div>`}
+    </section>
+    <section class="panel"><h2 style="margin-bottom:6px">Projetos ativos</h2>
+      ${ativos.length?`<div class="list">${ativos.sort(by).map(p=>`<div class="li"><div class="t" data-open="${p.id}"><b>${esc(p.titulo)}</b><div class="muted" style="font-size:13px">${p.proximo?"Próximo: "+esc(p.proximo):"Sem próximo passo definido"}${p.prazo?" · prazo "+new Date(p.prazo+"T12:00").toLocaleDateString("pt-BR"):""}</div></div></div>`).join("")}</div>`:`<div class="empty">Nenhum projeto ativo. Na triagem, escolha até 3.</div>`}
+    </section>
+  </div></div>`;
+  const f=$("#capForm");if(f)f.onsubmit=async e=>{e.preventDefault();const t=$("#capIn").value.trim();if(!t)return;$("#capIn").value="";await save({tipo:"ideia",status:"entrada",titulo:t,area:$("#capArea").value,origem:"Captura na Central"});toast("Na caixa de entrada")};
+}
+
+function renderIdeias(m){
+  const cols=ST.ideia.filter(s=>s!=="arquivada"),list=items.filter(i=>i.tipo==="ideia"&&match(i));
+  m.innerHTML=`<div class="stack"><div class="row" style="justify-content:space-between"><h1>Ideias</h1><label style="flex-direction:row;align-items:center;gap:6px;font-weight:500"><input type="checkbox" id="arch" ${showArch?"checked":""} style="width:auto">Mostrar arquivadas (${list.filter(i=>i.status==="arquivada").length})</label></div>
+  <p class="muted" style="margin:0">semente → avaliar → aprovada → em produção → feita. Só passa para “em produção” quando abrir vaga nos 3 projetos ativos.</p>
+  <div class="board">${[...cols,...(showArch?["arquivada"]:[])].map(s=>{const c=list.filter(i=>i.status===s).sort(by);return `<div class="col"><h3><span>${esc(STL[s]||s)}</span><span class="muted">${c.length}</span></h3>${c.map(i=>`<button class="mini" data-open="${i.id}"><b>${esc(i.titulo)}</b><span class="muted" style="font-size:12.5px">${esc(i.area||"")}</span></button>`).join("")||`<span class="muted" style="font-size:13px;padding:4px">—</span>`}</div>`}).join("")}</div></div>`;
+  $("#arch").onchange=e=>{showArch=e.target.checked;render()};
+}
+
+function renderProjetos(m){
+  const list=items.filter(i=>i.tipo==="projeto"&&match(i)&&(showArch||i.status!=="arquivada")).sort((a,b)=>ST.projeto.indexOf(a.status)-ST.projeto.indexOf(b.status)||by(a,b));
+  m.innerHTML=`<div class="stack"><div class="row" style="justify-content:space-between"><h1>Projetos</h1><label style="flex-direction:row;align-items:center;gap:6px;font-weight:500"><input type="checkbox" id="arch" ${showArch?"checked":""} style="width:auto">Mostrar arquivados</label></div>
+  <p class="muted" style="margin:0">Projeto = ideia com entrega, prazo e próximo passo. Pasta de produção: <code>diretor-producao-ia/projetos/</code>.</p>
+  ${list.length?`<div class="cards">${list.map(p=>`<button class="card" data-open="${p.id}"><div class="body"><div class="row">${pill(p.status)}<span class="pill">${esc(p.area||"")}</span></div><h3>${esc(p.titulo)}</h3><span class="muted">${esc(p.resumo||"")}</span></div><div class="foot muted" style="font-size:13px">${p.proximo?"Próximo: "+esc(p.proximo):""}${p.prazo?" · "+new Date(p.prazo+"T12:00").toLocaleDateString("pt-BR"):""}</div></button>`).join("")}</div>`:`<div class="empty">Nenhum projeto ainda. Uma ideia aprovada vira projeto na triagem.</div>`}</div>`;
+  $("#arch").onchange=e=>{showArch=e.target.checked;render()};
+}
+
+function renderBib(m){
+  const base=items.filter(i=>BIB.includes(i.tipo)&&i.status!=="arquivada");
+  const ofTipo=base.filter(i=>!bibTipo||i.tipo===bibTipo);
+  const cats=[...new Set(ofTipo.map(i=>i.categoria).filter(Boolean))].sort();
+  const list=ofTipo.filter(i=>!bibCat||i.categoria===bibCat).filter(match).sort((a,b)=>(a.titulo||"").localeCompare(b.titulo||""));
+  m.innerHTML=`<div class="stack"><h1>Biblioteca</h1>
+  <p class="muted" style="margin:0">O que funcionou e se reusa. Toque num item para ver o texto completo, copiar ou pôr imagem de referência.</p>
+  <div class="chips" role="group" aria-label="Tipo">${[["","Tudo"],...BIB.map(t=>[t,TIPOS[t]+"s"])].map(([t,l])=>`<button class="chip" data-tipo="${t}" aria-pressed="${bibTipo===t}">${l} <span class="muted">${base.filter(i=>!t||i.tipo===t).length}</span></button>`).join("")}</div>
+  ${cats.length>1?`<div class="chips" role="group" aria-label="Categoria"><button class="chip" data-cat="" aria-pressed="${!bibCat}">todas</button>${cats.map(c=>`<button class="chip" data-cat="${esc(c)}" aria-pressed="${bibCat===c}">${esc(c)}</button>`).join("")}</div>`:""}
+  ${list.length?`<div class="cards">${list.map(i=>{const im=(i.imagens||[])[0];return `<button class="card" data-open="${i.id}">${im?`<div class="img" style="background-image:url('${imgUrl(im)}')"></div>`:""}<div class="body"><div class="row"><span class="pill">${TIPOS[i.tipo]}</span>${i.categoria?`<span class="pill">${esc(i.categoria)}</span>`:""}</div><h3>${esc(i.titulo)}</h3><span class="muted">${esc(i.resumo||"")}</span>${i.conteudo&&i.tipo!=="agente"?`<div class="snip">${esc(i.conteudo.slice(0,220))}</div>`:""}</div>${i.conteudo?`<div class="foot"><span class="ghost" role="button" tabindex="0" data-copy="${i.id}" style="font-weight:600;color:var(--cobalt)">Copiar</span></div>`:""}</button>`}).join("")}</div>`:`<div class="empty">${q()?"Nada encontrado com essa busca.":"Ainda vazio. Use + Novo para guardar o primeiro."}</div>`}</div>`;
+  m.querySelectorAll("[data-tipo]").forEach(b=>b.onclick=()=>{bibTipo=b.dataset.tipo;bibCat="";render()});
+  m.querySelectorAll("[data-cat]").forEach(b=>b.onclick=()=>{bibCat=b.dataset.cat;render()});
+}
+
+document.addEventListener("click",e=>{
+  const c=e.target.closest("[data-copy]");if(c){e.stopPropagation();const i=items.find(x=>x.id===c.dataset.copy);if(i)copy(i.conteudo||"");return}
+  const mv=e.target.closest("[data-mv]");if(mv){const i=items.find(x=>x.id===mv.dataset.mv);if(!i)return;const to=mv.dataset.to;save(to==="projeto"?{...i,tipo:"projeto",status:"ativo"}:{...i,status:to},i.id).then(()=>toast(to==="projeto"?"Virou projeto":to==="arquivada"?"Arquivada":"Guardada como ideia"));return}
+  const o=e.target.closest("[data-open]");if(o)openItem(items.find(x=>x.id===o.dataset.open));
+});
+document.addEventListener("keydown",e=>{const c=e.target.closest&&e.target.closest("[data-copy]");if(c&&(e.key==="Enter"||e.key===" ")){e.preventDefault();e.stopPropagation();const i=items.find(x=>x.id===c.dataset.copy);if(i)copy(i.conteudo||"")}});
+
+/* ---------- editor ---------- */
+const F=id=>$("#f-"+id);
+$("#f-tipo").innerHTML=Object.entries(TIPOS).map(([k,v])=>`<option value="${k}">${v}</option>`).join("");
+$("#f-area").innerHTML=AREAS.map(a=>`<option>${a}</option>`).join("");
+function fillStatus(tipo,cur){const s=ST[tipo]||ST._;F("status").innerHTML=s.map(x=>`<option value="${x}">${esc(STL[x]||x)}</option>`).join("");F("status").value=s.includes(cur)?cur:s[0]}
+function shape(){const t=F("tipo").value,lib=BIB.includes(t);$("#w-conteudo").hidden=!(lib||t==="ideia");$("#l-conteudo").textContent=t==="prompt"?"Prompt":t==="comando"?"Comando":t==="ideia"?"Anotações":"Conteúdo";$("#w-uso").hidden=!lib;$("#w-prazo").hidden=$("#w-proximo").hidden=t!=="projeto"}
+F("tipo").onchange=()=>{fillStatus(F("tipo").value,F("status").value);shape()};
+function drawThumbs(){$("#thumbs").innerHTML=editImgs.map((id,k)=>`<div class="thumb"><img src="${imgUrl(id)}" alt="Referência ${k+1}">${canWrite?`<button type="button" data-rm="${k}" aria-label="Tirar imagem">×</button>`:""}</div>`).join("")||`<span class="muted">Nenhuma imagem.</span>`;$("#thumbs").querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{editImgs.splice(+b.dataset.rm,1);drawThumbs()})}
+function openItem(i,preset){
+  editing=i||null;const d=i||preset||{tipo:view==="projetos"?"projeto":view==="ideias"?"ideia":view==="biblioteca"?(bibTipo||"prompt"):"ideia",area:"Produtora"};
+  $("#dlgTitle").textContent=i?(TIPOS[i.tipo]||"Item"):"Novo item";
+  F("titulo").value=d.titulo||"";F("tipo").value=d.tipo||"ideia";F("area").value=d.area||"Produtora";fillStatus(F("tipo").value,d.status);
+  ["categoria","resumo","conteudo","uso","prazo","proximo","origem"].forEach(k=>F(k).value=d[k]||"");
+  editImgs=[...(d.imagens||[])];drawThumbs();shape();$("#imgMsg").textContent=assets?"":"Imagens: só quem pode editar.";
+  $("#w-imgs").querySelector("input[type=file]").disabled=!assets||!canWrite;
+  $("#frm").querySelectorAll("input,select,textarea").forEach(x=>{if(x.type!=="file")x.disabled=!canWrite});
+  $("#btnSalvar").hidden=$("#btnArquivar").hidden=$("#btnExcluir").hidden=!canWrite;if(!i){$("#btnArquivar").hidden=$("#btnExcluir").hidden=true}
+  $("#btnExcluir").textContent="Excluir";$("#btnExcluir").dataset.armed="";
+  $("#btnCopiar").hidden=!(d.conteudo);
+  $("#dlg").showModal();
+}
+$("#btnFechar").onclick=()=>$("#dlg").close();
+$("#btnNovo").onclick=()=>openItem(null);
+$("#btnCopiar").onclick=()=>copy(F("conteudo").value);
+F("img").onchange=async e=>{const files=[...e.target.files];e.target.value="";for(const f of files){$("#imgMsg").textContent="Enviando "+f.name+"…";try{const r=await assets.upload(f);editImgs.push(r.id);drawThumbs();$("#imgMsg").textContent="Imagem adicionada. Salve para guardar."}catch(err){$("#imgMsg").textContent="Não deu para enviar "+f.name+(err&&err.message?": "+err.message:"")}}};
+$("#frm").onsubmit=async e=>{e.preventDefault();if(!canWrite)return;const t=F("titulo").value.trim();if(!t){F("titulo").focus();return}
+  const data={titulo:t,tipo:F("tipo").value,area:F("area").value,status:F("status").value,imagens:editImgs};["categoria","resumo","conteudo","uso","prazo","proximo","origem"].forEach(k=>data[k]=F(k).value.trim());
+  $("#btnSalvar").disabled=true;try{await save({...(editing||{}),...data},editing&&editing.id);$("#dlg").close();toast("Salvo")}catch(err){toast("Não salvou: "+(err.message||err.code))}finally{$("#btnSalvar").disabled=false}};
+$("#btnArquivar").onclick=async()=>{if(!editing)return;await save({...editing,status:"arquivada"},editing.id);$("#dlg").close();toast("Arquivado")};
+$("#btnExcluir").onclick=async e=>{const b=e.currentTarget;if(!editing)return;if(!b.dataset.armed){b.dataset.armed="1";b.textContent="Toque de novo para excluir de vez";return}try{await db.collection("itens").doc(editing.id).delete();$("#dlg").close();toast("Excluído")}catch(err){toast("Não excluiu: "+(err.message||err.code))}};
+
+async function save(d,id){const {id:_x,...rest}=d;const now=new Date().toISOString();const body={...rest,atualizadoEm:now};if(!id){body.criadoEm=now;await db.collection("itens").add(body)}else await db.collection("itens").doc(id).set({criadoEm:d.criadoEm||now,...body})}
+
+/* ---------- navegação ---------- */
+function route(){const h=location.hash.replace("#","");view=["painel","ideias","projetos","biblioteca","metodo"].includes(h)?h:"painel";render()}
+addEventListener("hashchange",route);
+let tq;$("#q").addEventListener("input",()=>{clearTimeout(tq);tq=setTimeout(()=>{if(q()&&view==="painel"){bibTipo="";location.hash="biblioteca"}else render()},180)});
+
+const METODO=`<div class="method">
+<div><span class="eyebrow">Plano diretor</span><h1>Como a produtora se organiza</h1><p class="muted">A cabeça cria; a Central guarda, separa e lembra.</p></div>
+<section class="stack"><h2>As cinco gavetas</h2><p style="margin:0">Tudo mora em uma gaveta, e só em uma.</p>
+<div class="drawers"><div class="drawer"><b>Caixa de entrada</b><small>Saiu da cabeça e ainda não foi pensado. Sem filtro.</small></div><div class="drawer"><b>Ideias</b><small>Passou pela triagem e vale guardar, com status.</small></div><div class="drawer"><b>Projetos</b><small>Tem entrega, prazo e próximo passo. Máximo 3 ativos.</small></div><div class="drawer"><b>Biblioteca</b><small>O que funcionou e se reusa: prompts, skills, agentes, comandos, referências.</small></div><div class="drawer"><b>Arquivo</b><small>Acabou ou foi descartado. Nada se apaga.</small></div></div>
+<div class="flow">${["semente","avaliar","aprovada","em produção","feita"].map(pill).join(" → ")}</div></section>
+<section class="stack"><h2>Os rituais</h2><div class="tbl"><table><thead><tr><th>Quando</th><th>Tempo</th><th>O que fazer</th></tr></thead><tbody>
+<tr><td>Na hora</td><td>10 s</td><td>Ideia surgiu: joga na caixa de entrada (aqui no Painel ou <code>/ideia</code> no Claude). Não organiza agora.</td></tr>
+<tr><td>Fim de conversa útil</td><td>1 min</td><td><code>/resumo</code>. Prompt, skill ou comando que funcionou vai para a Biblioteca.</td></tr>
+<tr><td>Toda segunda</td><td>30 min</td><td><code>/triagem</code> com o Claude: esvaziar a caixa de entrada e rever os 3 projetos ativos.</td></tr>
+<tr><td>1ª segunda do mês</td><td>1 h</td><td><code>/plano-diretor</code>: metas do mês, resultados (Fran), o que entra e o que sai.</td></tr></tbody></table></div></section>
+<section class="stack"><h2>As regras</h2><ol style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+<li><b>Capturar não é decidir.</b> Na hora só anota; decide na triagem.</li>
+<li><b>Três projetos ativos, no máximo.</b> Ideia boa espera em “aprovada” até abrir vaga.</li>
+<li><b>Uma casa para cada coisa.</b> Ideias, projetos e biblioteca: aqui. Método e skills: <code>Clayton cerebro/</code> no GitHub. Produção: <code>diretor-producao-ia/projetos/</code>.</li>
+<li><b>Prompt que funcionou vira ficha:</b> título claro, categoria, para que serve, o texto e a imagem do resultado.</li>
+<li><b>Cliente é cliente.</b> Nada de um vai para outro.</li>
+<li><b>Créditos de IA só com “sim, pode gerar”</b> para aquela chamada.</li></ol></section></div>`;
+
+/* ---------- dados ---------- */
+route();
+(async()=>{
+  const timer=setTimeout(()=>{if(state==="loading"){state="error";render()}},10000);
+  const [d,a,u]=await Promise.all([claude.use("db"),claude.use("assets"),claude.use("user")]);
+  db=d;assets=a;
+  if(!db){clearTimeout(timer);state="noaccess";render();return}
+  try{const w=u?await u.can("data.write"):null;canWrite=w!==false}catch{canWrite=true}
+  db.collection("itens").limit(1000).onSnapshot(s=>{clearTimeout(timer);items=s.docs.map(x=>({id:x.id,...x.data()}));state="ready";render()},err=>{clearTimeout(timer);state=err.code==="revoked"?"noaccess":"error";render()});
+})();
+</script>

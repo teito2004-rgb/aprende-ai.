@@ -8,6 +8,8 @@ Porta de entrada. Aqui fica reunido, num lugar só, o que estava espalhado pelas
 
 | Arquivo / pasta | Conteúdo |
 |---|---|
+| [PLANO-DIRETOR.md](PLANO-DIRETOR.md) | **O método:** 5 gavetas, rituais e regras para organizar ideias e projetos |
+| `site/central.html` | Código do site privado **Central** (os dados ficam no site, não aqui) |
 | [01-AGENTES.md](01-AGENTES.md) | Equipe: Nico, Mayara, Jéssica, João, Natasha, Fran, Chico, Pablo, Picasso |
 | [02-SKILLS.md](02-SKILLS.md) | Catálogo das skills, para que serve cada uma e como chamar |
 | `02-skills/personalizadas/` | Cópia de cada skill sua (SKILL.md + arquivos de apoio) |

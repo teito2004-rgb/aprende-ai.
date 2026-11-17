@@ -1,12 +1,12 @@
 # 📋 Painel de Produção
 
-_Atualizado em: 2026-11-17_
+_Atualizado em: 2026-11-16_
 
 ## Projetos ativos
 
 | Projeto | Cliente | Tipo | Status | Próxima etapa | Prazo final | Pasta |
 |---|---|---|---|---|---|---|
-| Nico Explica #26 — palavra repetida | Nico Explica | Short 9:16 | 🟨 Revisão do Clayton | Escuta e aprovação do v1 | | [abrir](projetos/nico-26/ROTEIRO-v1.md) |
+| _(nenhum ainda — use `./novo-projeto.sh`)_ | | | | | | |
 
 ## Próximos prazos (7 dias)
 

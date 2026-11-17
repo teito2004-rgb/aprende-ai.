@@ -1,6 +1,10 @@
 # Guia visual do Nico Explica (padrão dos episódios que mais funcionaram)
 Data: 2026-11-17 · Fonte: vidIQ (Shorts mais populares + análise cena a cena de Tesla, Bocejo e Atenção; 35 créditos) · Status: confirmado
 
+## Prioridade (definida pelo Clayton, 17/11/2026)
+**1º retenção** (% assistido, quem ficou vs. deslizou, onde sai): é o que faz o algoritmo entregar para mais gente. **2º clique** (capa/título/assunto) vem depois.
+Toda decisão de roteiro e edição começa pela pergunta: isso segura a pessoa até o fim?
+
 ## Desempenho orgânico (vidIQ, 17/11/2026)
 **Regra: analisar só resultado orgânico.** Tesla (2.947 views) foi impulsionado → fora da referência.
 Meditar 1.680 · Bocejo 1.099 · Atenção 1.023 · Cômodo 880 · Memória falsa 843 · Voz 770/66 likes. Fracos: Starlink, BYD, pipoca, pessoa importante (<25 views).

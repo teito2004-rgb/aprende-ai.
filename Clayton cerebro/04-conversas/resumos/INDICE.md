@@ -1,1 +1,2 @@
 - 2026-11-17 — passagem nuvem → PC — produtora/Nico — Claude — 2026-11-17_passagem-nuvem-para-pc_claude.md
+- 2026-11-17 — resumo do dia — produtora/Nico — Claude — 2026-11-17_resumo-do-dia_claude.md
